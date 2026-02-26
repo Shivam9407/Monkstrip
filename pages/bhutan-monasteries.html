@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html class="dark scroll-smooth" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Finding Serenity in the <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-400">Monasteries of Bhutan</span> | MonksTrip Blog</title>
+    <meta name="description"
+        content="Stay informed and inspired with our latest travel blogs and articles. From destination guides to travel tips, we bring you the best insights.">
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#2563eb", /* Brand Blue */
+                        secondary: "#f97316",
+                        "background-light": "#f8fafc",
+                        "background-dark": "#0f172a", /* Deep dark blue/slate */
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#1e293b",
+                        "text-light": "#1f2937",
+                        "text-dark": "#e2e8f0",
+                        "muted-light": "#6b7280",
+                        "muted-dark": "#94a3b8",
+                        "card-light": "#ffffff",
+                        "card-dark": "#1e293b",
+                    },
+                    fontFamily: {
+                        playfair: ["Playfair Display", "serif"],
+                        display: ["Montero", "Manrope", "sans-serif"],
+                        serif: ["Montero", "Manrope", "serif"],
+                        sans: ["Montero", "Manrope", "sans-serif"],
+                        body: ["Montero", "Manrope", "sans-serif"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "12px",
+                        '2xl': "24px",
+                        '3xl': "32px",
+                    },
+                    boxShadow: {
+                        'soft': '0 4px 20px -2px rgba(0, 0, 0, 0.05)',
+                        'glow': '0 0 15px rgba(37, 99, 235, 0.2)',
+                    }
+                },
+            },
+        };
+    </script>
+    <style>
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .scroll-mask {
+            mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+            -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+        }
+
+        .mask-image-circle {
+            mask-image: radial-gradient(circle, black 60%, transparent 100%);
+            -webkit-mask-image: radial-gradient(circle, black 60%, transparent 100%);
+        }
+    </style>
+</head>
+
+<body
+    class="font-display bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 transition-colors duration-500 selection:bg-orange-200 selection:text-orange-900 antialiased leading-relaxed">
+
+    <!-- Navbar (Integrated from index.html) -->
+    <nav class="fixed top-0 w-full z-50 transition-all duration-300 py-4" id="navbar">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div
+                class="flex shrink-0 items-center gap-2 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md px-4 py-2 rounded-full border border-slate-200 dark:border-white/10 shadow-sm transition-all duration-300">
+                <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+                    <span class="material-symbols-outlined text-white text-lg">terrain</span>
+                </div>
+                <span
+                    class="text-lg font-extrabold tracking-tight font-serif italic text-slate-900 dark:text-white">Monks<span
+                        class="text-primary not-italic font-sans">Trip</span></span>
+            </div>
+            <div
+                class="hidden md:flex shrink-0 items-center gap-8 text-sm font-medium tracking-wide px-8 py-3 rounded-full border border-slate-200 dark:border-white/10 bg-white/80 dark:bg-slate-900/60 backdrop-blur-md shadow-lg transition-all duration-300">
+                <a class="text-slate-600 dark:text-slate-200 hover:text-primary dark:hover:text-primary transition-colors"
+                    href="../index.html">Home</a>
+                <a class="text-slate-600 dark:text-slate-200 hover:text-primary dark:hover:text-primary transition-colors"
+                    href="destination.html">Destinations</a>
+                <a class="text-slate-600 dark:text-slate-200 hover:text-primary dark:hover:text-primary transition-colors"
+                    href="services.html">Services</a>
+                <a class="text-slate-600 dark:text-slate-200 hover:text-primary dark:hover:text-primary transition-colors"
+                    href="about.html">About Us</a>
+                <a class="text-primary font-semibold transition-colors" href="blog.html">Blog</a>
+            </div>
+            <div class="flex shrink-0 items-center gap-4">
+
+                <a class="hidden md:flex bg-primary hover:bg-blue-600 text-white px-6 py-2.5 rounded-full font-bold text-sm items-center gap-2 transition-all duration-300 shadow-lg shadow-blue-500/30 hover:shadow-blue-500/50 hover:-translate-y-0.5"
+                    href="booking.html">
+                    Book Now <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                </a>
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn"
+                    class="md:hidden flex items-center justify-center p-2 rounded-full bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white transition-colors">
+                    <span class="material-symbols-outlined">menu</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu"
+            class="fixed inset-0 z-[-1] bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl transform -translate-y-full transition-transform duration-500 ease-in-out md:hidden flex flex-col pt-28 px-8 gap-8 shadow-2xl h-screen overflow-y-auto">
+            <a class="text-2xl font-semibold text-slate-800 dark:text-slate-200 hover:text-primary transition-colors"
+                href="../index.html">Home</a>
+            <a class="text-2xl font-semibold text-slate-800 dark:text-slate-200 hover:text-primary transition-colors"
+                href="destination.html">Destinations</a>
+            <a class="text-2xl font-semibold text-slate-800 dark:text-slate-200 hover:text-primary transition-colors"
+                href="services.html">Services</a>
+            <a class="text-2xl font-semibold text-slate-800 dark:text-slate-200 hover:text-primary transition-colors"
+                href="about.html">About Us</a>
+            <a class="text-2xl font-semibold text-primary" href="blog.html">Blog</a>
+
+            <a class="w-full bg-primary hover:bg-blue-600 text-white px-6 py-4 rounded-xl font-bold text-center text-lg mt-8 transition-colors shadow-lg shadow-blue-500/30"
+                href="booking.html">
+                Book Your Journey
+            </a>
+
+            <div class="mt-auto pb-12 flex gap-4 text-slate-500 dark:text-slate-400">
+                <a href="#" class="hover:text-primary transition-colors"><span
+                        class="material-symbols-outlined">language</span></a>
+                <a href="#" class="hover:text-primary transition-colors"><span
+                        class="material-symbols-outlined">support_agent</span></a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-1 w-full">
+        <!-- Hero Section: Split Layout -->
+        <section class="relative w-full pt-32 lg:pt-40 pb-16 px-6 lg:px-16 xl:px-40">
+            <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+                <!-- Left Content -->
+                <div class="lg:col-span-7 flex flex-col gap-6 lg:pr-8">
+                    <div class="flex items-center gap-2 text-primary font-bold text-sm uppercase tracking-wider">
+                        <span class="w-8 h-[2px] bg-primary"></span>
+                        <span>Spiritual Journey</span>
+                    </div>
+                    <h1
+                        class="text-5xl md:text-7xl lg:text-8xl font-playfair font-medium leading-tight tracking-tight text-slate-900 dark:text-white mb-6">
+                        Finding Serenity in the <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-400">Monasteries of Bhutan</span>
+                    </h1>
+                    <p class="text-lg md:text-xl text-muted-light dark:text-muted-dark leading-relaxed max-w-2xl">
+                        A deep dive into the silent mountains, ancient traditions, and the pursuit of inner peace in the Land of the Thunder Dragon.
+                    </p>
+                    <div
+                        class="flex flex-wrap items-center gap-6 mt-4 pt-6 border-t border-slate-200 dark:border-slate-800">
+                        <div class="flex items-center gap-3">
+                            <div class="size-10 rounded-full bg-slate-700 overflow-hidden"
+                                data-alt="Portrait of Elena Fisher"
+                                style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAruodju0LsV7WM6mPVchRN8xNNOR2qFPn_pN1h3veV5hK8HZLPz2nQKTuKO1IYO95X_tAS6E3xBmwC6FOAftT6dOBs7eIZK-PzwhabvbjdqiVlDjGXTfSfJ20sR1_ONSIy_HiPhdyR35OlPtxIVfmgSxpR4ODMP-Qfk4hSTy3HyETRQSAws_QQIFuewEN0khUwn10ynaw2eCrwxsSGzVB0XK9cpSSA1lHlzXVAmffNlLUmJDan_DsueUSR7lUZDw-bA6dNaOmpui0'); background-size: cover;">
+                            </div>
+                            <div>
+                                <p class="text-sm font-bold text-slate-900 dark:text-white">Elena Fisher</p>
+                                <p class="text-xs text-slate-500 dark:text-slate-400">Travel Blogger</p>
+                            </div>
+                        </div>
+                        <div class="w-px h-8 bg-slate-200 dark:bg-slate-700 hidden sm:block"></div>
+                        <div class="flex items-center gap-2 text-slate-500 dark:text-slate-400 text-sm">
+                            <span class="material-symbols-outlined text-lg">calendar_month</span>
+                            <span>Oct 14, 2023</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-slate-500 dark:text-slate-400 text-sm">
+                            <span class="material-symbols-outlined text-lg">schedule</span>
+                            <span>8 min read</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Right Image -->
+                <div class="lg:col-span-5 relative group">
+                    <div
+                        class="absolute inset-0 bg-primary rounded-[2rem] blur-2xl opacity-20 group-hover:opacity-30 transition-opacity duration-500">
+                    </div>
+                    <div class="relative w-full aspect-[4/5] rounded-[2rem] overflow-hidden shadow-2xl">
+                        <div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+                            data-alt="Monastery in Bhutan mountains" style="background-image: url('https://images.pexels.com/photos/910368/pexels-photo-910368.jpeg');">
+                        </div>
+                        <div
+                            class="absolute bottom-4 right-4 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full text-xs text-white flex items-center gap-1">
+                            <span class="material-symbols-outlined text-sm">photo_camera</span>
+                            Markus Spiske
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Content Body -->
+        <section class="relative px-6 lg:px-16 xl:px-40 pb-20">
+            <div class="max-w-[800px] mx-auto">
+                <!-- Intro Paragraph & Content Body -->
+                <p class="text-xl md:text-2xl font-light leading-relaxed text-slate-700 dark:text-slate-200 first-letter:text-6xl first-letter:font-bold first-letter:text-primary first-letter:mr-3 first-letter:float-left mb-10">The journey to Bhutan is not just a trip across borders, but a passage through time. As the plane descends into Paro Valley, navigating a narrow gorge between towering peaks, the modern world dissipates. It is replaced by the rhythmic chanting of monks and the rustling of colorful prayer flags catching the Himalayan wind.</p>
+<div class="my-12 p-8 rounded-xl bg-primary/5 dark:bg-slate-800/40 border border-primary/10 dark:border-white/10 backdrop-blur-sm relative overflow-hidden">
+    <div class="absolute top-0 right-0 p-10 bg-primary/20 blur-[60px] rounded-full w-32 h-32"></div>
+    <div class="relative z-10">
+        <h3 class="flex items-center gap-2 text-2xl md:text-3xl font-serif font-bold text-primary mb-4">
+            <span class="material-symbols-outlined">auto_awesome</span> Practical Tips & Insights
+        </h3>
+        <ul class="space-y-3">
+            
+            <li class="flex items-start gap-3 text-slate-700 dark:text-slate-300">
+                <span class="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0"></span>
+                <span>Acclimatize properly: Paro sits at an elevation of 2,200 meters. Take it easy on your first day.</span>
+            </li>
+            <li class="flex items-start gap-3 text-slate-700 dark:text-slate-300">
+                <span class="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0"></span>
+                <span>Dress respectfully: Shoulders and knees must be covered when entering temples and Dzongs.</span>
+            </li>
+            <li class="flex items-start gap-3 text-slate-700 dark:text-slate-300">
+                <span class="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0"></span>
+                <span>Hire a local guide: Travel in Bhutan requires licensed guides who offer invaluable cultural context.</span>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="prose dark:prose-invert prose-lg max-w-none text-muted-light dark:text-muted-dark pb-8"><p class="mb-6">Bhutan—the revered Land of the Thunder Dragon—is arguably the last great Himalayan kingdom, shrouded in mystery and deep-rooted spirituality. Here, a traditional Buddhist culture carefully embraces global developments without losing its soul. It is a place that measures its success not by GDP, but by Gross National Happiness, an ethos palpable in the friendly smiles of the locals and the pristine preservation of its dense alpine forests.</p></div><div class="prose dark:prose-invert prose-lg max-w-none text-muted-light dark:text-muted-dark pb-8"><h3 class="text-2xl md:text-3xl font-serif font-bold text-text-light dark:text-text-dark mt-10 mb-4">The Climb to Tiger's Nest</h3><p class="mb-6">The crown jewel of our expedition was Paro Taktsang, famously known as the Tiger's Nest. Legend dictates that in the 8th century, Guru Rinpoche flew to this exact rock face on the back of a flaming tigress to subdue local demons and establish Buddhism in Bhutan. The ascent towards the monastery is a rigorous test of endurance, but also an exercise in moving meditation.</p><p class="mb-6">The trail winds relentlessly upward through dark, fragrant forests of blue pine draped in Spanish moss. As the altitude presses against your lungs, the sound of the wind grows louder—a howling rush echoing off the sheer cliffs. Every step feels intentional. Along the path, fellow pilgrims spin ornate prayer wheels, their rhythmic clacking providing an acoustic backdrop to the daunting climb.</p></div>
+<figure class="my-12 -mx-6 md:-mx-12 lg:-mx-20">
+    <div class="relative aspect-video rounded-xl overflow-hidden shadow-xl bg-slate-800">
+        <div class="w-full h-full bg-cover bg-center" data-alt="Vibrant prayer flags scattered across a mountainous pass." style="background-image: url('https://images.pexels.com/photos/1039886/pexels-photo-1039886.jpeg');"></div>
+    </div>
+    <figcaption class="mt-3 text-center text-sm text-slate-500 dark:text-slate-400 flex items-center justify-center gap-1">
+        <span class="material-symbols-outlined text-sm">info</span> Vibrant prayer flags scattered across a mountainous pass.
+    </figcaption>
+</figure>
+<div class="prose dark:prose-invert prose-lg max-w-none text-muted-light dark:text-muted-dark pb-8"><h3 class="text-2xl md:text-3xl font-serif font-bold text-text-light dark:text-text-dark mt-10 mb-4">Inside the Sacred Halls</h3><p class="mb-6">Reaching the monastery after a grueling trek, all physical exhaustion simply vanishes. We were enveloped by the rich, earthy scent of lit butter lamps and burning incense. The complex hangs precariously onto the cliff face, an architectural anomaly that seems to defy gravity. Inside the cavernous prayer halls, the silence was profound, broken only by the low, guttural chanting of resident crimson-robed monks.</p><p class="mb-6">Walking barefoot on the cold stone floors of the temples, surrounded by ancient murals of wrathful deities and compassionate bodhisattvas, you feel a direct link to the centuries of devotion that have permeated these walls.</p></div>
+<figure class="my-12 -mx-6 md:-mx-12 lg:-mx-20">
+    <div class="relative aspect-video rounded-xl overflow-hidden shadow-xl bg-slate-800">
+        <div class="w-full h-full bg-cover bg-center" data-alt="The majestic, mist-covered peaks of the Himalayas." style="background-image: url('https://images.pexels.com/photos/896602/pexels-photo-896602.jpeg');"></div>
+    </div>
+    <figcaption class="mt-3 text-center text-sm text-slate-500 dark:text-slate-400 flex items-center justify-center gap-1">
+        <span class="material-symbols-outlined text-sm">info</span> The majestic, mist-covered peaks of the Himalayas.
+    </figcaption>
+</figure>
+<div class="prose dark:prose-invert prose-lg max-w-none text-muted-light dark:text-muted-dark pb-8"><h3 class="text-2xl md:text-3xl font-serif font-bold text-text-light dark:text-text-dark mt-10 mb-4">A Lasting Imprint</h3><p class="mb-6">Stepping out onto the wooden balconies overlooking the plunging valley below, a profound sense of peace washed over me. It is in these secluded, high-altitude sanctuaries that one truly understands Bhutan's magical allure. It is not merely the breathtaking vistas, but the deep-seated contentment derived from spiritual harmony and an intense connection to the natural world. Bhutan doesn't just offer a vacation; it offers a reset button for the soul.</p></div>
+                <!-- Interactive Quote Block -->
+                <div class="my-16 flex flex-col items-center justify-center text-center">
+                    <span class="material-symbols-outlined text-6xl text-primary/30 mb-4">format_quote</span>
+                    <blockquote
+                        class="text-2xl md:text-3xl font-display font-medium text-slate-800 dark:text-slate-100 italic leading-snug max-w-2xl">
+                        "In the silence of the mountains, we find the answers that the noise of the city drowns out."
+                    </blockquote>
+                    <div class="w-16 h-1 bg-primary mt-8 mb-2"></div>
+                </div>
+                <!-- Tags -->
+                <div class="flex flex-wrap gap-2 mt-12 mb-20">
+                    <span class="bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 px-4 py-2 rounded-full text-sm font-medium hover:bg-primary hover:text-white transition-colors cursor-pointer">Buddhism</span><span class="bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 px-4 py-2 rounded-full text-sm font-medium hover:bg-primary hover:text-white transition-colors cursor-pointer">Himalayas</span><span class="bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 px-4 py-2 rounded-full text-sm font-medium hover:bg-primary hover:text-white transition-colors cursor-pointer">Wellness</span><span class="bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 px-4 py-2 rounded-full text-sm font-medium hover:bg-primary hover:text-white transition-colors cursor-pointer">Culture</span>
+                </div>
+            </div>
+        </section>
+        <!-- Final CTA: Dark Card with Blurred Background -->
+        <section class="px-6 lg:px-16 xl:px-40 pb-20">
+            <div
+                class="relative w-full rounded-[2.5rem] overflow-hidden min-h-[400px] flex items-center justify-center group">
+                <!-- Blurred Background Image -->
+                <div class="absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-105"
+                    data-alt="Blurred sunset over mountains"
+                    style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAcxmkyJNDxveqcBGR7uuc9fCCOkS9WASXAwhalS0fZ-EBmW7o_0teZxhRymL3RMEMKWBsHQaO0TDQI1_CjXaooyzevT8QOFyixUUXIYNqdUCIFxq9TPTIqf_U_9sZyMx42ii7eybirIpBtTSmkev3T8wZkj3Wh75LcyqROHQQ-p44Rsj3aFLRI8daAwz_As0ba16aJ5ZvjXfPTZir1LQj_vB5XzPz-kQPWKDJHfvFKAeWlo48IatejHhn_o8PUvuDHDueP0BP6-dA'); filter: blur(4px) brightness(0.6);">
+                </div>
+                <!-- Gradient Overlay -->
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                <!-- Content -->
+                <div class="relative z-10 text-center max-w-2xl px-6 flex flex-col items-center">
+                    <div
+                        class="mb-6 inline-flex items-center justify-center size-16 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white">
+                        <span class="material-symbols-outlined text-3xl">flight_takeoff</span>
+                    </div>
+                    <h2 class="text-4xl md:text-5xl font-serif font-bold mb-6 tracking-tight text-white">Ready for your
+                        own journey?</h2>
+                    <p class="text-slate-200 text-lg mb-10 max-w-lg mx-auto">
+                        Subscribe to our premium newsletter for exclusive guides, hidden gem locations, and discount
+                        codes for your next flight.
+                    </p>
+                    <div class="flex flex-col sm:flex-row w-full gap-4 max-w-md">
+                        <input
+                            class="flex-1 rounded-full bg-white/10 border border-white/20 text-white placeholder:text-slate-300 px-6 py-3 focus:ring-2 focus:ring-primary focus:border-transparent focus:outline-none backdrop-blur-sm"
+                            placeholder="Your email address" type="email" />
+                        <button
+                            class="bg-primary hover:bg-blue-500 text-white font-bold rounded-full px-8 py-3 transition-all shadow-lg shadow-blue-600/30">
+                            Join Now
+                        </button>
+                    </div>
+                    <p class="mt-4 text-xs text-slate-400">No spam, just wanderlust. Unsubscribe anytime.</p>
+                </div>
+            </div>
+        </section>
+        <!-- More to Explore Section -->
+        <section class="px-6 lg:px-16 xl:px-40 pb-20 border-t border-slate-200 dark:border-slate-800 pt-16">
+            <div class="flex justify-between items-end mb-10">
+                <div>
+                    <h3 class="text-2xl md:text-3xl font-serif font-bold text-text-light dark:text-text-dark mb-2">More
+                        from the Blog</h3>
+                    <p class="text-slate-500 dark:text-slate-400">Handpicked stories for you</p>
+                </div>
+                <a class="hidden md:flex items-center gap-1 text-primary font-bold hover:gap-2 transition-all" href="#">
+                    View All <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                </a>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <article class="group cursor-pointer">
+                    <div class="aspect-[4/3] rounded-2xl overflow-hidden mb-4 relative">
+                        <div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+                            data-alt="Tropical beach at sunrise"
+                            style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCjqCHFsBoKzQdIfjaJnbsCYSi25syWJ6xLjv82uBdypepIYd-kUHM4cTQcIKFSv9pNWkFJzlQIVhzRCJji51slYBXIUx4Um4a6YERw3U8n1MS221NZYBf3RykLuCEu6fUnWclF7-ySOtsINd3PY66T6IRQseKnZQwgCO_2yPXz0C4M0fC9Ji24Uh0Znk3iu4vFCKroq2Wa9mwQkL_w0Qe11BTrKf4e6og_a6UkXkOkZw-Hu-5gDaVhER8QHqTb--WnB8tos7WqMxQ');">
+                        </div>
+                        <div
+                            class="absolute top-4 right-4 bg-white/90 dark:bg-black/60 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-slate-900 dark:text-white">
+                            Guides
+                        </div>
+                    </div>
+                    <h4
+                        class="text-xl font-bold text-text-light dark:text-text-dark mb-2 group-hover:text-primary transition-colors leading-snug">
+                        Island Hopping in Thailand</h4>
+                    <p class="text-slate-500 dark:text-slate-400 text-sm line-clamp-2">Discover the hidden lagoons and
+                        secret beaches that tourists often miss.</p>
+                </article>
+                <!-- Card 2 -->
+                <article class="group cursor-pointer">
+                    <div class="aspect-[4/3] rounded-2xl overflow-hidden mb-4 relative">
+                        <div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+                            data-alt="Kyoto street at night"
+                            style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAXDzVXCM9Jv7CVptjuPACFon2c38d_-ANUlSZAWgldwyOgAMuI9GsxzWu-jhQM99udV8SUp-UpPpme-PDE8WMt7TprkjqMmbh8IUKL019qjMC-o25f2-cadMHOHHJkPCursN5VdDP4mSe6J0jQAJLo8cNIr2M16dG6c41-z8t4fDGKRtxeWkQe80hHv-szpxiKxaWHBnPrPXC3_N4S4hAlFy74d6CGTeHUkKOFaOGaMp1XMpycoFOpfNht-7JREXCr_5eYOVUJD4s');">
+                        </div>
+                        <div
+                            class="absolute top-4 right-4 bg-white/90 dark:bg-black/60 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-slate-900 dark:text-white">
+                            Culture
+                        </div>
+                    </div>
+                    <h4
+                        class="text-xl font-bold text-text-light dark:text-text-dark mb-2 group-hover:text-primary transition-colors leading-snug">
+                        Kyoto After Dark</h4>
+                    <p class="text-slate-500 dark:text-slate-400 text-sm line-clamp-2">Exploring the lantern-lit alleys
+                        of Gion and the vibrant nightlife of Pontocho.</p>
+                </article>
+                <!-- Card 3 -->
+                <article class="group cursor-pointer">
+                    <div class="aspect-[4/3] rounded-2xl overflow-hidden mb-4 relative">
+                        <div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+                            data-alt="Swiss Alps landscape"
+                            style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDb6ZU2j7hOZ47EfqzYpVAnh0Jwdv-qr9lTQcH6OCgnwhU5Fj6f0UWoIWBH9ZTZxWx1InbcXKk8XIBvf_mjPR1OSzdwOxD32edirCqAnSmhxQW5NPm9HKAqkdv8NJxyx0kK3td5cZG0lrwcxGCt25QYx8UPN33bbmNDzRTly8EiJppvxgZv0xngAyvVd_KP3e0P0z8bDAayOGG-Q2_Bkhtf7EuAl10iUa8BCPPnVpYz6SCXIV33ex42938NhgF-CWyNyzjYrQFZUS8');">
+                        </div>
+                        <div
+                            class="absolute top-4 right-4 bg-white/90 dark:bg-black/60 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-slate-900 dark:text-white">
+                            Adventure
+                        </div>
+                    </div>
+                    <h4
+                        class="text-xl font-bold text-text-light dark:text-text-dark mb-2 group-hover:text-primary transition-colors leading-snug">
+                        Hiking the Swiss Alps</h4>
+                    <p class="text-slate-500 dark:text-slate-400 text-sm line-clamp-2">A complete guide to the most
+                        scenic trails in Switzerland for beginners.</p>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer (Integrated from index.html) -->
+    <footer class="bg-slate-950 text-white pt-24 pb-12 px-6 relative overflow-hidden">
+        <div class="absolute inset-0 bg-topo-pattern opacity-10 pointer-events-none"></div>
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="grid lg:grid-cols-4 gap-12 mb-20">
+                <div class="col-span-1 lg:col-span-1">
+                    <div class="flex items-center gap-2 mb-8">
+                        <div class="w-10 h-10 bg-primary rounded-xl flex items-center justify-center">
+                            <span class="material-symbols-outlined text-white">terrain</span>
+                        </div>
+                        <span class="text-2xl font-serif font-bold tracking-tight italic">Monks<span
+                                class="text-primary not-italic font-sans">Trip</span></span>
+                    </div>
+                    <p class="text-slate-400 leading-relaxed mb-8">
+                        Your gateway to extraordinary adventures. We specialize in creating high-end, personalized
+                        travel experiences that leave lasting impressions.
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <a class="w-10 h-10 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center hover:bg-primary hover:border-primary transition-all"
+                            href="#">
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                <path
+                                    d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z">
+                                </path>
+                            </svg>
+                        </a>
+                        <a class="w-10 h-10 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center hover:bg-primary hover:border-primary transition-all"
+                            href="#">
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z">
+                                </path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h6 class="text-lg font-serif font-bold mb-8">Quick Links</h6>
+                    <ul class="space-y-4 text-slate-400">
+                        <li><a class="hover:text-primary transition-colors" href="#">About Us</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Destinations</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Our Services</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h6 class="text-lg font-serif font-bold mb-8">Support</h6>
+                    <ul class="space-y-4 text-slate-400">
+                        <li><a class="hover:text-primary transition-colors" href="#">Help Center</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Contact Support</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Privacy Policy</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">FAQs</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h6 class="text-lg font-serif font-bold mb-8">Get Travel Inspiration</h6>
+                    <p class="text-slate-400 text-sm mb-6 leading-relaxed">Subscribe to receive exclusive offers and
+                        weekly travel guides.</p>
+                    <form class="space-y-3">
+                        <input
+                            class="w-full bg-slate-900 border-slate-800 rounded-xl px-4 py-3 text-sm focus:ring-primary focus:border-primary transition-all"
+                            placeholder="Your email address" type="email" />
+                        <button
+                            class="w-full bg-primary hover:bg-blue-700 text-white font-bold py-3 rounded-xl transition-all"
+                            type="submit">
+                            Subscribe Now
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div
+                class="pt-8 border-t border-slate-900 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-500 font-medium">
+                <p>Â© 2024 MonksTrip. All rights reserved.</p>
+                <div class="flex items-center gap-6">
+                    <a class="hover:text-white transition-colors" href="#">Cookie Policy</a>
+                    <a class="hover:text-white transition-colors" href="#">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // Sticky Navbar Transition
+        const nav = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                nav.classList.add('py-2', 'bg-white/60', 'dark:bg-slate-900/60', 'backdrop-blur-lg');
+                nav.classList.remove('py-4');
+            } else {
+                nav.classList.remove('py-2', 'bg-white/60', 'dark:bg-slate-900/60', 'backdrop-blur-lg');
+                nav.classList.add('py-4');
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- 1. Filter Functionality ---
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const blogCards = document.querySelectorAll('.blog-card');
+
+            // Classes for active vs inactive buttons
+            const activeClasses = ['bg-primary', 'text-white', 'shadow-glow'];
+            const inactiveClasses = ['bg-white', 'dark:bg-surface-dark', 'text-muted-light', 'dark:text-muted-dark', 'border', 'border-gray-200', 'dark:border-gray-700'];
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const filterValue = btn.getAttribute('data-filter');
+
+                    // Reset all button styles
+                    filterBtns.forEach(b => {
+                        b.classList.remove(...activeClasses);
+                        b.classList.add(...inactiveClasses);
+                    });
+
+                    // Set active style on clicked button
+                    btn.classList.add(...activeClasses);
+                    btn.classList.remove(...inactiveClasses);
+
+                    // Filter cards
+                    blogCards.forEach(card => {
+                        const isHiddenByLoadMore = card.classList.contains('hidden') && !card.classList.contains('opacity-100');
+
+                        // We only want to process currently visible cards or ones that should be visible based on filter.
+                        // For simplicity: If filter is "all", show if it wasn't hidden by "Load More".
+                        if (filterValue === 'all') {
+                            if (!card.hasAttribute('data-hidden-by-default')) {
+                                card.classList.remove('hidden');
+                                // Small reflow delay
+                                setTimeout(() => card.classList.remove('opacity-0', 'scale-95', 'translate-y-4'), 20);
+                            }
+                        } else {
+                            if (card.getAttribute('data-category') === filterValue) {
+                                card.classList.remove('hidden');
+                                setTimeout(() => card.classList.remove('opacity-0', 'scale-95', 'translate-y-4'), 20);
+                            } else {
+                                card.classList.add('opacity-0', 'scale-95', 'translate-y-4');
+                                // Wait for duration-700
+                                setTimeout(() => {
+                                    if (card.classList.contains('opacity-0')) {
+                                        card.classList.add('hidden');
+                                    }
+                                }, 700);
+                            }
+                        }
+                    });
+                });
+            });
+
+            // Mark hidden cards so filter 'All' doesn't prematurely reveal them
+            const hiddenCards = document.querySelectorAll('.blog-card.hidden');
+            hiddenCards.forEach(card => card.setAttribute('data-hidden-by-default', 'true'));
+
+            // --- 2. Load More Functionality ---
+            const loadMoreBtn = document.getElementById('loadMoreBtn');
+            const loadMoreContainer = document.getElementById('loadMoreContainer');
+
+            if (loadMoreBtn) {
+                loadMoreBtn.addEventListener('click', () => {
+                    const hiddenCards = document.querySelectorAll('.blog-card[data-hidden-by-default="true"]');
+
+                    // Instantly reveal cards to give fast feedback, images handle their own fade-in
+                    hiddenCards.forEach((card, index) => {
+                        card.classList.remove('hidden');
+                        card.removeAttribute('data-hidden-by-default');
+                        // Stagger the reveal animation natively
+                        setTimeout(() => {
+                            card.classList.remove('opacity-0', 'scale-95', 'translate-y-4');
+                        }, 50 + (index * 150));
+                    });
+
+                    // Hide the load more button container immediately
+                    loadMoreContainer.classList.add('opacity-0', 'scale-95');
+                    setTimeout(() => {
+                        loadMoreContainer.style.display = 'none';
+                    }, 500);
+                });
+            }
+
+            // --- 3. Carousel Navigation ---
+            const carousel = document.getElementById('articlesCarousel');
+            const prevBtn = document.getElementById('carouselPrevBtn');
+            const nextBtn = document.getElementById('carouselNextBtn');
+
+            if (carousel && prevBtn && nextBtn) {
+                // Get the width of the first card plus gap
+                const scrollAmount = carousel.firstElementChild.offsetWidth + 24; // 24px is gap-6
+
+                prevBtn.addEventListener('click', () => {
+                    // Scroll exactly one card's clientWidth plus gap offset to ensure neat snapping
+                    const card = carousel.firstElementChild;
+                    const scrollAmount = card.clientWidth + 24; // 24px is gap-6
+                    carousel.scrollBy({
+                        left: -scrollAmount,
+                        behavior: 'smooth'
+                    });
+                });
+
+                nextBtn.addEventListener('click', () => {
+                    const card = carousel.firstElementChild;
+                    const scrollAmount = card.clientWidth + 24;
+                    carousel.scrollBy({
+                        left: scrollAmount,
+                        behavior: 'smooth'
+                    });
+                });
+            }
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = mobileMenuBtn ? mobileMenuBtn.querySelector('.material-symbols-outlined') : null;
+
+        if (mobileMenuBtn && mobileMenu && menuIcon) {
+            mobileMenuBtn.addEventListener('click', () => {
+                const isMenuOpen = mobileMenu.classList.contains('translate-y-0');
+
+                if (isMenuOpen) {
+                    // Close menu
+                    mobileMenu.classList.remove('translate-y-0');
+                    mobileMenu.classList.add('-translate-y-full');
+                    menuIcon.textContent = 'menu';
+                    document.body.style.overflow = '';
+                } else {
+                    // Open menu
+                    mobileMenu.classList.remove('-translate-y-full');
+                    mobileMenu.classList.add('translate-y-0');
+                    menuIcon.textContent = 'close';
+                    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+                }
+            });
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../lib/supabase-client.js"></script>
+    <script src="js/auth-handler.js"></script>
+</body>
+
+</html>

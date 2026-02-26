@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html class="dark scroll-smooth" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Book Your Journey | MonksTrip Premium Travel</title>
+    <meta name="description"
+        content="Begin your exclusive journey with MonksTrip. Schedule a consultation or book your luxury vacation to the world's most breathtaking destinations.">
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#2563eb", // Deep Ocean Blue
+                        secondary: "#f97316", // Sunset Orange
+                        "background-light": "#f8fafc",
+                        "background-dark": "#0f172a",
+                        "card-light": "#ffffff",
+                        "card-dark": "#1e293b",
+                    },
+                    fontFamily: {
+                        playfair: ["Playfair Display", "serif"],
+                        display: ["Montero", "Manrope", "sans-serif"],
+                        serif: ["Montero", "Manrope", "serif"],
+                        sans: ["Montero", "Manrope", "sans-serif"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "12px",
+                        '2xl': "24px",
+                        '3xl': "32px",
+                    },
+                },
+            },
+        };
+    </script>
+    <style>
+        .hero-gradient {
+            background: linear-gradient(to right, rgba(15, 23, 42, 0.8) 0%, rgba(15, 23, 42, 0.6) 100%);
+        }
+
+        .glass-form {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+        }
+
+        .dark .glass-form {
+            background: rgba(30, 41, 59, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+        }
+
+        /* Custom Input Styling */
+        .form-input {
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.1);
+        }
+    </style>
+</head>
+
+<body
+    class="font-display bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 transition-colors duration-500 selection:bg-orange-200 selection:text-orange-900 antialiased leading-relaxed">
+    <nav class="fixed top-0 w-full z-50 transition-all duration-300 py-4">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div
+                class="flex shrink-0 items-center gap-2 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md px-4 py-2 rounded-full border border-slate-200 dark:border-white/10 shadow-sm transition-all duration-300">
+                <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+                    <span class="material-symbols-outlined text-white text-lg">terrain</span>
+                </div>
+                <span
+                    class="text-lg font-extrabold tracking-tight font-serif italic text-slate-900 dark:text-white">Monks<span
+                        class="text-primary not-italic font-sans">Trip</span></span>
+            </div>
+            <div
+                class="hidden md:flex shrink-0 items-center gap-8 text-sm font-medium tracking-wide px-8 py-3 rounded-full border border-slate-200 dark:border-white/10 bg-white/80 dark:bg-slate-900/60 backdrop-blur-md shadow-lg transition-all duration-300">
+                <a class="text-slate-600 dark:text-slate-200 hover:text-primary dark:hover:text-primary transition-colors"
+                    href="../index.html">Home</a>
+                <a class="text-slate-600 dark:text-slate-200 hover:text-primary dark:hover:text-primary transition-colors"
+                    href="destination.html">Destinations</a>
+                <a class="text-slate-600 dark:text-slate-200 hover:text-primary dark:hover:text-primary transition-colors"
+                    href="services.html">Services</a>
+                <a class="text-slate-600 dark:text-slate-200 hover:text-primary dark:hover:text-primary transition-colors"
+                    href="about.html">About Us</a>
+                <a class="text-slate-600 dark:text-slate-200 hover:text-primary dark:hover:text-primary transition-colors"
+                    href="blog.html">Blog</a>
+            </div>
+            <div class="flex shrink-0 items-center gap-4">
+
+            </div>
+        </div>
+    </nav>
+
+    <div class="min-h-screen flex items-center justify-center relative pt-20 pb-12 px-4 sm:px-6 lg:px-8">
+        <!-- Background Image -->
+        <div class="absolute inset-0 z-0">
+            <img src="../public/images/img_2.jpg" alt="Luxury resort lounge overlooking the ocean at sunset"
+                class="w-full h-full object-cover" loading="eager">
+            <div class="absolute inset-0 hero-gradient"></div>
+        </div>
+
+        <div class="relative z-10 w-full max-w-4xl flex flex-col md:flex-row gap-8 items-stretch transform transition-all duration-700 ease-out translate-y-0 opacity-100"
+            id="booking-container">
+
+            <!-- Intro Text -->
+            <div class="md:w-5/12 text-white flex flex-col justify-center">
+                <span
+                    class="inline-block py-1 px-3 w-fit rounded-full border border-white/20 bg-white/10 text-xs font-bold tracking-widest uppercase mb-6 backdrop-blur-sm">
+                    Begin Your Journey
+                </span>
+                <h1 class="text-4xl md:text-5xl font-playfair font-medium mb-6 leading-tight">
+                    Let's Plan Your <br>
+                    <span class="font-light text-blue-400">Dream Escape</span>
+                </h1>
+                <p class="text-slate-300 text-lg leading-relaxed mb-8 opacity-90">
+                    Tell us where you want to go, and our travel curators will craft a personalized itinerary just for
+                    you.
+                </p>
+                <div class="flex items-center gap-4 text-sm font-medium text-slate-300">
+                    <div class="flex items-center gap-2">
+                        <span class="material-symbols-outlined text-primary">verified</span>
+                        <span>Official Partner</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="material-symbols-outlined text-primary">support_agent</span>
+                        <span>24/7 Concierge</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Booking Form -->
+            <div class="md:w-7/12">
+                <form id="bookingForm" class="glass-form p-8 rounded-3xl relative overflow-hidden group"
+                    onsubmit="handleSubmit(event)">
+                    <h2 class="text-2xl font-serif font-bold mb-6 text-slate-800 dark:text-white">Trip Details</h2>
+
+                    <div class="space-y-5">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                            <div>
+                                <label
+                                    class="block text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-2"
+                                    for="name">Name</label>
+                                <input
+                                    class="form-input w-full bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-slate-900 dark:text-white focus:ring-2 focus:ring-primary focus:border-transparent outline-none"
+                                    type="text" id="name" required placeholder="John Doe">
+                            </div>
+                            <div>
+                                <label
+                                    class="block text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-2"
+                                    for="email">Email</label>
+                                <input
+                                    class="form-input w-full bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-slate-900 dark:text-white focus:ring-2 focus:ring-primary focus:border-transparent outline-none"
+                                    type="email" id="email" required placeholder="john@example.com">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label
+                                class="block text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-2"
+                                for="destination">Destination</label>
+                            <div class="relative">
+                                <span
+                                    class="material-symbols-outlined absolute left-4 top-3.5 text-slate-400">location_on</span>
+                                <select
+                                    class="form-input w-full bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-xl pl-12 pr-4 py-3 text-slate-900 dark:text-white focus:ring-2 focus:ring-primary focus:border-transparent outline-none appearance-none cursor-pointer"
+                                    id="destination" required>
+                                    <option value="" disabled selected>Select a destination</option>
+                                    <option value="amalfi">Amalfi Coast, Italy</option>
+                                    <option value="kyoto">Kyoto, Japan</option>
+                                    <option value="santorini">Santorini, Greece</option>
+                                    <option value="maldives">Maldives</option>
+                                    <option value="serengeti">Serengeti, Tanzania</option>
+                                    <option value="other">Other (Please Specify)</option>
+                                </select>
+                                <span
+                                    class="material-symbols-outlined absolute right-4 top-3.5 text-slate-400 pointer-events-none">expand_more</span>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                            <div>
+                                <label
+                                    class="block text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-2"
+                                    for="date">Global Departure</label>
+                                <input
+                                    class="form-input w-full bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-slate-900 dark:text-white focus:ring-2 focus:ring-primary focus:border-transparent outline-none"
+                                    type="date" id="date" required>
+                            </div>
+                            <div>
+                                <label
+                                    class="block text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-2"
+                                    for="travelers">Travelers</label>
+                                <input
+                                    class="form-input w-full bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-slate-900 dark:text-white focus:ring-2 focus:ring-primary focus:border-transparent outline-none"
+                                    type="number" id="travelers" min="1" max="20" required placeholder="2">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label
+                                class="block text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-2"
+                                for="message">Special Requests</label>
+                            <textarea
+                                class="form-input w-full bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-slate-900 dark:text-white focus:ring-2 focus:ring-primary focus:border-transparent outline-none h-24 resize-none"
+                                id="message" placeholder="Honeymoon package, vegetarian meals, etc."></textarea>
+                        </div>
+
+                        <button type="submit"
+                            class="w-full bg-primary hover:bg-blue-600 text-white font-bold py-4 rounded-xl shadow-lg shadow-blue-500/30 hover:shadow-blue-500/50 transition-all duration-300 transform hover:-translate-y-1 active:translate-y-0 active:scale-95 flex items-center justify-center gap-2 group-hover:ripple">
+                            Start My Journey
+                            <span
+                                class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Success Message (Hidden by default) -->
+                <div id="successMessage"
+                    class="hidden glass-form p-8 rounded-3xl h-full flex-col items-center justify-center text-center animate-fade-in">
+                    <div
+                        class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mb-6 shadow-green-500/30 shadow-lg animate-bounce">
+                        <span class="material-symbols-outlined text-white text-3xl">check</span>
+                    </div>
+                    <h2 class="text-3xl font-serif font-bold text-slate-800 dark:text-white mb-2">Request Received!</h2>
+                    <p class="text-slate-600 dark:text-slate-300 mb-8 max-w-xs mx-auto">
+                        Thank you for choosing MonksTrip. One of our luxury travel curators will contact you within 24
+                        hours to craft your itinerary.
+                    </p>
+                    <a href="../index.html"
+                        class="text-primary font-bold hover:text-blue-600 transition-colors flex items-center gap-2">
+                        <span class="material-symbols-outlined text-sm">arrow_back</span> Return Home
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-slate-950 text-white pt-24 pb-12 px-6 relative overflow-hidden">
+        <div class="absolute inset-0 bg-topo-pattern opacity-10 pointer-events-none"></div>
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="grid lg:grid-cols-4 gap-12 mb-20">
+                <div class="col-span-1 lg:col-span-1">
+                    <div class="flex items-center gap-2 mb-8">
+                        <div class="w-10 h-10 bg-primary rounded-xl flex items-center justify-center">
+                            <span class="material-symbols-outlined text-white">terrain</span>
+                        </div>
+                        <span class="text-2xl font-serif font-bold tracking-tight italic">Monks<span
+                                class="text-primary not-italic font-sans">Trip</span></span>
+                    </div>
+                    <p class="text-slate-400 leading-relaxed mb-8">
+                        Your gateway to extraordinary adventures. We specialize in creating high-end, personalized
+                        travel experiences that leave lasting impressions.
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <a class="w-10 h-10 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center hover:bg-primary hover:border-primary transition-all"
+                            href="#">
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                <path
+                                    d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z">
+                                </path>
+                            </svg>
+                        </a>
+                        <a class="w-10 h-10 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center hover:bg-primary hover:border-primary transition-all"
+                            href="#">
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z">
+                                </path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h6 class="text-lg font-serif font-bold mb-8">Quick Links</h6>
+                    <ul class="space-y-4 text-slate-400">
+                        <li><a class="hover:text-primary transition-colors" href="#">About Us</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Destinations</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Our Services</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h6 class="text-lg font-serif font-bold mb-8">Support</h6>
+                    <ul class="space-y-4 text-slate-400">
+                        <li><a class="hover:text-primary transition-colors" href="#">Help Center</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Contact Support</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Privacy Policy</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">FAQs</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h6 class="text-lg font-serif font-bold mb-8">Get Travel Inspiration</h6>
+                    <p class="text-slate-400 text-sm mb-6 leading-relaxed">Subscribe to receive exclusive offers and
+                        weekly travel guides.</p>
+                    <form class="space-y-3">
+                        <input
+                            class="w-full bg-slate-900 border-slate-800 rounded-xl px-4 py-3 text-sm focus:ring-primary focus:border-primary transition-all"
+                            placeholder="Your email address" type="email" />
+                        <button
+                            class="w-full bg-primary hover:bg-blue-700 text-white font-bold py-3 rounded-xl transition-all"
+                            type="submit">
+                            Subscribe Now
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div
+                class="pt-8 border-t border-slate-900 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-500 font-medium">
+                <p>Â© 2024 MonksTrip. All rights reserved.</p>
+                <div class="flex items-center gap-6">
+                    <a class="hover:text-white transition-colors" href="#">Cookie Policy</a>
+                    <a class="hover:text-white transition-colors" href="#">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    {
+    event.preventDefault();
+
+    // Simulate API call/processing
+    const form = document.getElementById('bookingForm');
+    const successMsg = document.getElementById('successMessage');
+    const btn = form.querySelector('button[type="submit"]');
+
+    // Loading state
+    btn.innerHTML = '<span class="animate-spin material-symbols-outlined text-sm">refresh</span> Processing...';
+    btn.classList.add('opacity-75', 'cursor-wait');
+
+    setTimeout(() => {
+    form.classList.add('hidden');
+    successMsg.classList.remove('hidden');
+    successMsg.classList.add('flex');
+    }, 1500);
+    }
+
+    // Sticky Navbar Logic (Copied from index.html)
+    window.addEventListener('scroll', () => {
+    const navbar = document.querySelector('nav');
+    const logoContainer = navbar.querySelector('div > div:first-child');
+    const navLinks = navbar.querySelector('.hidden.md\\:flex');
+
+    if (window.scrollY > 20) {
+    // Scrolled state
+    navbar.classList.replace('py-4', 'py-2');
+
+    // Navbar background (if you want the whole nav bar to have a background,
+    // but our design puts backgrounds on the pills.
+    // So we primarily want to reduce size/padding)
+    } else {
+    // Top state
+    navbar.classList.replace('py-2', 'py-4');
+    }
+    });
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuIcon = mobileMenuBtn ? mobileMenuBtn.querySelector('.material-symbols-outlined') : null;
+
+    if (mobileMenuBtn && mobileMenu && menuIcon) {
+    mobileMenuBtn.addEventListener('click', () => {
+    const isMenuOpen = mobileMenu.classList.contains('translate-y-0');
+
+    if (isMenuOpen) {
+    // Close menu
+    mobileMenu.classList.remove('translate-y-0');
+    mobileMenu.classList.add('-translate-y-full');
+    menuIcon.textContent = 'menu';
+    document.body.style.overflow = '';
+    } else {
+    // Open menu
+    mobileMenu.classList.remove('-translate-y-full');
+    mobileMenu.classList.add('translate-y-0');
+    menuIcon.textContent = 'close';
+    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    }
+    });
+    }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../lib/supabase-client.js"></script>
+    <script src="js/auth-handler.js"></script>
+</body>
+
+</html>

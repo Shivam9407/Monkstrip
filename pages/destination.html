@@ -1,0 +1,621 @@
+﻿<!DOCTYPE html>
+<html class="dark scroll-smooth" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Destination Explorer | MonksTrip Exclusive Locations</title>
+    <meta name="description"
+        content="Explore our curated collection of exclusive travel destinations. From Santorini to Kyoto, find your perfect luxury getaway with MonksTrip.">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2563eb", // Deep Ocean Blue (Matched)
+                        "secondary": "#f97316", // Sunset Orange (Added)
+                        "accent-orange": "#FF8C42",
+                        "background-light": "#f8fafc",
+                        "background-dark": "#0f172a",
+                    },
+                    fontFamily: {
+                        playfair: ["Playfair Display", "serif"],
+                        display: ["Montero", "Manrope", "sans-serif"],
+                        serif: ["Montero", "Manrope", "serif"],
+                        sans: ["Montero", "Manrope", "sans-serif"],
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                    transitionTimingFunction: {
+                        'cinematic': 'cubic-bezier(0.4, 0, 0.2, 1)',
+                    },
+                    animation: {
+                        'slow-zoom': 'slowZoom 20s infinite alternate',
+                        'ken-burns': 'kenBurns 30s infinite alternate',
+                        'scroll-zoom': 'scrollZoom 1s linear forwards',
+                    },
+                    keyframes: {
+                        slowZoom: {
+                            '0%': { transform: 'scale(1)' },
+                            '100%': { transform: 'scale(1.1)' },
+                        },
+                        kenBurns: {
+                            '0%': { transform: 'scale(1.1) translate(0, 0)' },
+                            '100%': { transform: 'scale(1.0) translate(-1%, -1%)' },
+                        }
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display antialiased leading-relaxed overflow-x-hidden">
+    <div class="relative h-screen w-full overflow-hidden">
+        <div class="absolute inset-0 bg-cover bg-center z-0 animate-slow-zoom" role="img"
+            aria-label="Vertical video loop of a Mediterranean coastline with blue water and cliffs"
+            style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA5x4ERO85bBgIjRJFMnVoEDDJPVpJsBKNnehJvDTVzXTkwrak12nwdVtckun1G4ZVgvm9hO1MJ5l-DWdSllRDJhhDW8o1412pjEDCnuwDNHuZlmgvVMxf--qVRBU_nbF_0-Bt_YjodwyAuBfRrmf8VO-ImAl5wQaK7eOSvfEcMCMH1D2lQeDk7qCd_CUxnG3POtR3vi4PBwVn7QT89GkScDbNXSSXlPrKi3DX95i47YySR_VN-i33OMoSHQwiRuYD0mKLs0Hpin1U');">
+            <div
+                class="absolute inset-0 bg-gradient-to-t from-background-dark/90 via-transparent to-background-dark/30">
+            </div>
+        </div>
+        <nav class="fixed top-0 w-full z-50 transition-all duration-300 py-4">
+            <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+                <div
+                    class="flex shrink-0 items-center gap-2 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md px-4 py-2 rounded-full border border-slate-200 dark:border-white/10 shadow-sm transition-all duration-300">
+                    <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+                        <span class="material-symbols-outlined text-white text-lg">terrain</span>
+                    </div>
+                    <span
+                        class="text-lg font-extrabold tracking-tight font-serif italic text-slate-900 dark:text-white">Monks<span
+                            class="text-primary not-italic font-sans">Trip</span></span>
+                </div>
+                <div
+                    class="hidden md:flex shrink-0 items-center gap-8 text-sm font-medium tracking-wide px-8 py-3 rounded-full border border-slate-200 dark:border-white/10 bg-white/80 dark:bg-slate-900/60 backdrop-blur-md shadow-lg transition-all duration-300">
+                    <a class="text-slate-600 dark:text-slate-200 hover:text-primary dark:hover:text-primary transition-colors"
+                        href="../index.html">Home</a>
+                    <a class="text-primary font-semibold transition-colors" href="destination.html">Destinations</a>
+                    <a class="text-slate-600 dark:text-slate-200 hover:text-primary dark:hover:text-primary transition-colors"
+                        href="services.html">Services</a>
+                    <a class="text-slate-600 dark:text-slate-200 hover:text-primary dark:hover:text-primary transition-colors"
+                        href="about.html">About Us</a>
+                    <a class="text-slate-600 dark:text-slate-200 hover:text-primary dark:hover:text-primary transition-colors"
+                        href="blog.html">Blog</a>
+                </div>
+                <div class="flex shrink-0 items-center gap-4">
+                    <a class="hidden md:flex bg-primary hover:bg-blue-600 text-white px-6 py-2.5 rounded-full font-bold text-sm items-center gap-2 transition-all duration-300 shadow-lg shadow-blue-500/30 hover:shadow-blue-500/50 hover:-translate-y-0.5"
+                        href="booking.html">
+                        Book Now <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                    </a>
+                    <!-- Mobile Menu Button -->
+                    <button id="mobile-menu-btn"
+                        class="md:hidden flex items-center justify-center p-2 rounded-full bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white transition-colors">
+                        <span class="material-symbols-outlined">menu</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Menu Overlay -->
+            <div id="mobile-menu"
+                class="fixed inset-0 z-[-1] bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl transform -translate-y-full transition-transform duration-500 ease-in-out md:hidden flex flex-col pt-28 px-8 gap-8 shadow-2xl h-screen overflow-y-auto">
+                <a class="text-2xl font-semibold text-slate-800 dark:text-slate-200 hover:text-primary transition-colors"
+                    href="../index.html">Home</a>
+                <a class="text-2xl font-semibold text-primary" href="destination.html">Destinations</a>
+                <a class="text-2xl font-semibold text-slate-800 dark:text-slate-200 hover:text-primary transition-colors"
+                    href="services.html">Services</a>
+                <a class="text-2xl font-semibold text-slate-800 dark:text-slate-200 hover:text-primary transition-colors"
+                    href="about.html">About Us</a>
+                <a class="text-2xl font-semibold text-slate-800 dark:text-slate-200 hover:text-primary transition-colors"
+                    href="blog.html">Blog</a>
+
+                <a class="w-full bg-primary hover:bg-blue-600 text-white px-6 py-4 rounded-xl font-bold text-center text-lg mt-8 transition-colors shadow-lg shadow-blue-500/30"
+                    href="booking.html">
+                    Book Your Journey
+                </a>
+
+                <div class="mt-auto pb-12 flex gap-4 text-slate-500 dark:text-slate-400">
+                    <a href="#" class="hover:text-primary transition-colors"><span
+                            class="material-symbols-outlined">language</span></a>
+                    <a href="#" class="hover:text-primary transition-colors"><span
+                            class="material-symbols-outlined">support_agent</span></a>
+                </div>
+            </div>
+        </nav>
+        <div class="relative z-10 flex flex-col items-center justify-center h-full px-4 text-center pt-24 md:pt-32">
+            <h1
+                class="text-5xl md:text-7xl lg:text-8xl font-playfair font-medium text-white tracking-tight leading-tight mb-6 drop-shadow-2xl">
+                ESCAPE THE <br /><span
+                    class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-200 font-light">ORDINARY</span>
+            </h1>
+            <p class="max-w-xl text-lg md:text-xl text-slate-300 font-light mb-10 leading-relaxed">
+                Immerse yourself in the world's most breathtaking landscapes through our curated cinematic journeys.
+            </p>
+            <button
+                class="group relative flex items-center gap-4 px-8 py-4 bg-primary text-white rounded-full overflow-hidden hover:scale-105 transition-all duration-500 shadow-[0_0_40px_-10px_rgba(17,82,212,0.6)]">
+                <div
+                    class="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out">
+                </div>
+                <span class="material-symbols-outlined relative z-10 animate-pulse">play_circle</span>
+                <span class="relative z-10 font-bold tracking-wide">Start Exploring</span>
+            </button>
+        </div>
+        <div class="absolute bottom-10 left-10 z-20 hidden lg:block">
+            <div class="flex items-center gap-4 text-white/50 text-sm font-mono">
+                <span class="flex items-center gap-2">
+                    <span class="block size-1.5 bg-green-500 rounded-full animate-pulse"></span>
+                    42 Destinations Active
+                </span>
+            </div>
+        </div>
+        <div
+            class="absolute top-0 right-0 h-full w-[400px] bg-background-dark/95 backdrop-blur-xl border-l border-white/5 z-30 transform translate-x-full hover:translate-x-0 transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] shadow-2xl flex flex-col group/drawer">
+            <div
+                class="absolute left-[-40px] top-1/2 -translate-y-1/2 bg-primary/90 text-white p-3 rounded-l-xl cursor-pointer shadow-lg backdrop-blur-md">
+                <span class="material-symbols-outlined rotate-180">tune</span>
+            </div>
+            <div class="p-8 flex flex-col h-full">
+                <h3 class="text-2xl font-bold text-white mb-8">Refine Journey</h3>
+                <div class="space-y-8 flex-1 overflow-y-auto no-scrollbar">
+                    <div class="space-y-3">
+                        <label class="text-sm text-slate-400 font-medium">Search</label>
+                        <div class="relative">
+                            <span class="material-symbols-outlined absolute left-3 top-3 text-slate-500">search</span>
+                            <input
+                                class="w-full bg-white/5 border border-white/10 rounded-lg py-3 pl-10 text-white placeholder-slate-500 focus:ring-1 focus:ring-primary focus:border-primary transition-all"
+                                placeholder="Where to?" type="text" />
+                        </div>
+                    </div>
+                    <div class="space-y-3">
+                        <label class="text-sm text-slate-400 font-medium">Region</label>
+                        <div class="grid grid-cols-2 gap-2">
+                            <label
+                                class="flex items-center gap-3 p-3 rounded-lg bg-white/5 border border-white/5 hover:border-primary/50 cursor-pointer transition-all">
+                                <input
+                                    class="rounded border-slate-600 bg-transparent text-primary focus:ring-offset-background-dark focus:ring-primary"
+                                    type="checkbox" />
+                                <span class="text-sm text-slate-200">Europe</span>
+                            </label>
+                            <label
+                                class="flex items-center gap-3 p-3 rounded-lg bg-white/5 border border-white/5 hover:border-primary/50 cursor-pointer transition-all">
+                                <input
+                                    class="rounded border-slate-600 bg-transparent text-primary focus:ring-offset-background-dark focus:ring-primary"
+                                    type="checkbox" />
+                                <span class="text-sm text-slate-200">Asia</span>
+                            </label>
+                            <label
+                                class="flex items-center gap-3 p-3 rounded-lg bg-white/5 border border-white/5 hover:border-primary/50 cursor-pointer transition-all">
+                                <input
+                                    class="rounded border-slate-600 bg-transparent text-primary focus:ring-offset-background-dark focus:ring-primary"
+                                    type="checkbox" />
+                                <span class="text-sm text-slate-200">Americas</span>
+                            </label>
+                            <label
+                                class="flex items-center gap-3 p-3 rounded-lg bg-white/5 border border-white/5 hover:border-primary/50 cursor-pointer transition-all">
+                                <input
+                                    class="rounded border-slate-600 bg-transparent text-primary focus:ring-offset-background-dark focus:ring-primary"
+                                    type="checkbox" />
+                                <span class="text-sm text-slate-200">Oceania</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="space-y-3">
+                        <label class="text-sm text-slate-400 font-medium">Budget</label>
+                        <input class="w-full h-2 bg-white/10 rounded-lg appearance-none cursor-pointer accent-primary"
+                            type="range" />
+                        <div class="flex justify-between text-xs text-slate-500">
+                            <span>$1k</span>
+                            <span>$50k+</span>
+                        </div>
+                    </div>
+                </div>
+                <button
+                    class="w-full py-4 bg-primary hover:bg-primary/90 text-white font-bold rounded-xl mt-4 transition-colors">
+                    Show 42 Results
+                </button>
+            </div>
+        </div>
+    </div>
+    <section class="bg-slate-50 dark:bg-background-dark py-20 px-4 md:px-10 relative transition-colors duration-300">
+        <div class="flex items-end justify-between mb-12 relative z-20">
+            <div>
+                <h2
+                    class="text-4xl md:text-5xl font-serif font-bold tracking-tight text-slate-900 dark:text-white mb-2">
+                    Featured
+                    Destinations</h2>
+                <p class="text-slate-600 dark:text-slate-400">Curated locations for your next episode.</p>
+            </div>
+            <div class="flex gap-2">
+                <button
+                    class="size-12 rounded-full border border-slate-300 dark:border-white/10 flex items-center justify-center hover:bg-slate-200 dark:hover:bg-white/5 text-slate-900 dark:text-white transition-colors">
+                    <span class="material-symbols-outlined">west</span>
+                </button>
+                <button
+                    class="size-12 rounded-full border border-slate-300 dark:border-white/10 flex items-center justify-center hover:bg-slate-200 dark:hover:bg-white/5 text-slate-900 dark:text-white transition-colors">
+                    <span class="material-symbols-outlined">east</span>
+                </button>
+            </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 auto-rows-[500px]">
+            <div onclick="window.location.href='santorini.html'"
+                class="group relative overflow-hidden rounded-xl cursor-pointer hover:-translate-y-1 transition-all duration-700 ease-cinematic shadow-2xl hover:shadow-xl z-10 hover:z-20">
+                <div class="absolute inset-0 bg-cover bg-center transition-transform duration-[1200ms] ease-cinematic group-hover:scale-[1.03]"
+                    role="img"
+                    aria-label="Santorini warm-toned, low-angle shot of white-washed buildings against a deep orange sunset"
+                    data-location="Santorini"
+                    style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAItC33gjiAl5TEGFXaplM9DBgsR7wdHQDufbjypNVxOXdjcCZJIoLu60gs_3DdR1T4vwTw_iAxfHLAaSa6C2x16tGUqcoFTIL3WyxXTJFiJ2zSg0ZI473dmPETHaRfsrE0-ocjvuFOH_yCbGJn8D2hk7mzXc-Bgf8pysy9JTmEDz6kca1QSRSWwda-jsQALI_djd4lAytf_-J65ZHOpgECIhCX3pJgmJVsSP_aTlT0f-ZcODfzmB6xggQ7r2fYJ84bsRK6C_WjsTw'); filter: blur(0px);">
+                </div>
+                <!-- Removed backdrop-blur -->
+                <div
+                    class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-700">
+                </div>
+                <div
+                    class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-slate-900 dark:from-background-dark to-transparent opacity-90 transition-opacity">
+                </div>
+                <div
+                    class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-20">
+                    <a href="santorini.html"
+                        class="px-6 py-3 bg-white/10 backdrop-blur-md border border-white/20 text-white rounded-full font-medium tracking-wider hover:bg-primary hover:border-primary transition-colors flex items-center gap-2 transform scale-90 group-hover:scale-100 duration-500">
+                        <span class="material-symbols-outlined text-[18px]">visibility</span>
+                        Quick View
+                    </a>
+                </div>
+                <div
+                    class="absolute bottom-0 left-0 w-full p-8 z-10 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-700 ease-cinematic">
+                    <div class="flex justify-between items-end">
+                        <div>
+                            <p class="text-primary text-xs font-bold tracking-widest uppercase mb-2">Greece</p>
+                            <h3
+                                class="text-3xl font-bold text-white leading-tight group-hover:text-accent-orange transition-colors duration-500">
+                                Santorini Sunsets</h3>
+                        </div>
+                        <div
+                            class="opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 translate-x-4 group-hover:translate-x-0 shrink-0 pb-1">
+                            <a href="santorini.html"
+                                class="group/btn flex items-center gap-2 text-white text-xs font-bold uppercase tracking-wider bg-slate-900/60 backdrop-blur-md border border-white/10 px-4 py-2 rounded-full cursor-pointer hover:bg-slate-800/80 transition-all">
+                                View Itinerary <span
+                                    class="material-symbols-outlined text-sm group-hover/btn:translate-x-1 transition-transform">arrow_forward</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div
+                        class="flex items-center justify-between text-slate-300 text-sm font-medium border-t border-white/10 pt-4 mt-4 opacity-0 group-hover:opacity-100 transition-opacity delay-100 duration-500">
+                        <span class="flex items-center gap-1"><span
+                                class="material-symbols-outlined text-[16px]">calendar_today</span> 7 Days</span>
+                        <span>From $2,400</span>
+                    </div>
+                </div>
+            </div>
+            <div
+                class="group relative overflow-hidden rounded-xl cursor-pointer md:col-span-2 lg:col-span-1 hover:-translate-y-1 transition-all duration-700 ease-cinematic shadow-2xl hover:shadow-xl z-10 hover:z-20">
+                <div class="absolute inset-0 bg-cover bg-center transition-transform duration-[1200ms] ease-cinematic group-hover:scale-[1.03]"
+                    role="img"
+                    aria-label="Amalfi Coast cinematic landscape of rugged coastal cliffs meeting a turquoise sea"
+                    data-location="Amalfi Coast"
+                    style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC0QjZCjrYfDhf4assNP2tvhu0fzyo44oIgfV4RTDk7uErm73hx-e1BqPJQpCg9Ol6hDh1eAOf-y5IUjJw7cj3NpqeGMuDussKEnMZQ13-lhrKy84aJ9atQLaN3G9OwECCwl8MqZPm2zZ4yJJ8XdjgV2-F-lZou0QV0EV0Qkf49RavuKdUJbX2yv7u8AH45LynhQMxgnSkF8lMndw6Ry9md3ZN3-l7Jb1rGv5w0F5BN7Gazz5ph_1wiECI-shP5v6ID63ZMzuVlXpE'); filter: blur(0px);">
+                </div>
+                <!-- Removed backdrop-blur -->
+                <div
+                    class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-700">
+                </div>
+                <div
+                    class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-slate-900 dark:from-background-dark to-transparent opacity-90 transition-opacity">
+                </div>
+                <div
+                    class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-20">
+                    <a href="amalfi-coastline.html"
+                        class="px-6 py-3 bg-white/10 backdrop-blur-md border border-white/20 text-white rounded-full font-medium tracking-wider hover:bg-primary hover:border-primary transition-colors flex items-center gap-2 transform scale-90 group-hover:scale-100 duration-500">
+                        <span class="material-symbols-outlined text-[18px]">visibility</span>
+                        Quick View
+                    </a>
+                </div>
+                <div
+                    class="absolute bottom-0 left-0 w-full p-8 z-10 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-700 ease-cinematic">
+                    <div class="flex justify-between items-end">
+                        <div>
+                            <p class="text-primary text-xs font-bold tracking-widest uppercase mb-2">Italy</p>
+                            <h3
+                                class="text-3xl font-bold text-white leading-tight group-hover:text-accent-orange transition-colors duration-500">
+                                Amalfi Coastline</h3>
+                        </div>
+                        <div
+                            class="opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 translate-x-4 group-hover:translate-x-0 shrink-0 pb-1">
+                            <a href="amalfi-coastline.html"
+                                class="group/btn flex items-center gap-2 text-white text-xs font-bold uppercase tracking-wider bg-slate-900/60 backdrop-blur-md border border-white/10 px-4 py-2 rounded-full cursor-pointer hover:bg-slate-800/80 transition-all">
+                                View Itinerary <span
+                                    class="material-symbols-outlined text-sm group-hover/btn:translate-x-1 transition-transform">arrow_forward</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div
+                        class="flex items-center justify-between text-slate-300 text-sm font-medium border-t border-white/10 pt-4 mt-4 opacity-0 group-hover:opacity-100 transition-opacity delay-100 duration-500">
+                        <span class="flex items-center gap-1"><span
+                                class="material-symbols-outlined text-[16px]">calendar_today</span> 10 Days</span>
+                        <span>From $3,200</span>
+                    </div>
+                </div>
+            </div>
+            <div
+                class="group relative overflow-hidden rounded-xl cursor-pointer hover:-translate-y-1 transition-all duration-700 ease-cinematic shadow-2xl hover:shadow-xl z-10 hover:z-20">
+                <div class="absolute inset-0 bg-cover bg-center transition-transform duration-[1200ms] ease-cinematic group-hover:scale-[1.03]"
+                    role="img" aria-label="Maldives crystal-clear aerial view of a private overwater villa and sandbar"
+                    data-location="Maldives"
+                    style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAE9ZXsszW3pDr4d3qicDsbyZXx-O38iTtSJt0Wv6fO7LIQiWE7zzUTE1HP886nlUyF1BAuQKekEBiO_UBSSOwcTVxRkH5oqEyJ1JytV5CiZ5z6P-6Mm8CveS2DSIrR4QEjQ50WfATAtIJWE8F1xCQ8HXNzoPsKOXNLeEKQ09fS_UNWJbuWX3XbTJj-7Ym5S0OmnZTBHh11cz1sJHJKo49ZgjhsQfu200mdfPRtjug3vigQAJx34CzU3EZ9g9igsYrFzE58CA_kaDU'); filter: blur(0px);">
+                </div>
+                <!-- Removed backdrop-blur -->
+                <div
+                    class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-700">
+                </div>
+                <div
+                    class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-slate-900 dark:from-background-dark to-transparent opacity-90 transition-opacity">
+                </div>
+                <div
+                    class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-20">
+                    <a href="azure-paradise.html"
+                        class="px-6 py-3 bg-white/10 backdrop-blur-md border border-white/20 text-white rounded-full font-medium tracking-wider hover:bg-primary hover:border-primary transition-colors flex items-center gap-2 transform scale-90 group-hover:scale-100 duration-500">
+                        <span class="material-symbols-outlined text-[18px]">visibility</span>
+                        Quick View
+                    </a>
+                </div>
+                <div
+                    class="absolute bottom-0 left-0 w-full p-8 z-10 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-700 ease-cinematic">
+                    <div class="flex justify-between items-end">
+                        <div>
+                            <p class="text-primary text-xs font-bold tracking-widest uppercase mb-2">Maldives</p>
+                            <h3
+                                class="text-3xl font-bold text-white leading-tight group-hover:text-accent-orange transition-colors duration-500">
+                                Azure Paradise</h3>
+                        </div>
+                        <div
+                            class="opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 translate-x-4 group-hover:translate-x-0 shrink-0 pb-1">
+                            <a href="azure-paradise.html"
+                                class="group/btn flex items-center gap-2 text-white text-xs font-bold uppercase tracking-wider bg-slate-900/60 backdrop-blur-md border border-white/10 px-4 py-2 rounded-full cursor-pointer hover:bg-slate-800/80 transition-all">
+                                View Itinerary <span
+                                    class="material-symbols-outlined text-sm group-hover/btn:translate-x-1 transition-transform">arrow_forward</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div
+                        class="flex items-center justify-between text-slate-300 text-sm font-medium border-t border-white/10 pt-4 mt-4 opacity-0 group-hover:opacity-100 transition-opacity delay-100 duration-500">
+                        <span class="flex items-center gap-1"><span
+                                class="material-symbols-outlined text-[16px]">calendar_today</span> 5 Days</span>
+                        <span>From $4,500</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section
+        class="relative h-[80vh] w-full overflow-hidden flex items-center justify-center bg-background-dark group perspective-1000">
+        <div class="absolute inset-0 bg-fixed bg-cover bg-center animate-ken-burns scale-110 will-change-transform"
+            role="img" aria-label="Traditional Kyoto street at night with glowing lanterns"
+            style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBVMIDdZsCCP7qDhc2Lv0uiQNJ-0DVj9JNaxHTzmoV2fMXJ-kHXETQK3fAlmPHB1xroNNn45f0ocr-M07Q8v2T0IfjbvqtKLGk4_ZxxYTjDCC1MOGq7TaL9WELTczIoCoyIrysfdab7LMxGietkkdB97mZ2n9fK1Gj3FpmUUYkqRRDwDdwdOJy_vI9aG7gvBGGlezI05diw7d5yDLuni_hRNQwazFys-TJ5o9tWLi_jB4TBW7ThIi_JbQ2iURhCVuscLySPlMgLBbE'); filter: blur(1px);">
+        </div>
+        <div
+            class="absolute inset-0 bg-[radial-gradient(circle_at_center,_transparent_10%,_#101622_95%)] opacity-90 z-0">
+        </div>
+        <div
+            class="absolute inset-0 bg-gradient-to-b from-background-dark/30 via-transparent to-background-dark/90 z-0">
+        </div>
+        <div class="relative z-10 text-center px-4 max-w-4xl">
+            <span
+                class="inline-block py-1 px-3 rounded-full border border-primary/30 bg-primary/20 text-white text-xs font-bold tracking-widest uppercase mb-6 backdrop-blur-sm shadow-[0_0_20px_rgba(17,82,212,0.5)]">Featured
+                Story</span>
+            <h2
+                class="text-5xl md:text-7xl lg:text-8xl font-serif font-black text-white mb-6 leading-none drop-shadow-2xl">
+                THE MAGIC <br /> <span class="italic">OF KYOTO</span>
+            </h2>
+            <p
+                class="text-lg md:text-xl text-slate-200 font-light mb-10 leading-relaxed max-w-2xl mx-auto drop-shadow-md">
+                Discover the hidden temples, the silent bamboo forests, and the vibrant night markets that make Kyoto a
+                timeless masterpiece.
+            </p>
+            <a class="inline-flex items-center gap-2 text-white font-medium border-b border-white pb-1 hover:text-primary hover:border-primary transition-colors drop-shadow-md"
+                href="#">
+                Read the Blog <span class="material-symbols-outlined text-sm">arrow_forward</span>
+            </a>
+        </div>
+        <div
+            class="absolute top-20 left-20 size-64 bg-primary/20 rounded-full blur-[100px] pointer-events-none mix-blend-screen opacity-60">
+        </div>
+        <div
+            class="absolute bottom-20 right-20 size-96 bg-purple-500/10 rounded-full blur-[120px] pointer-events-none mix-blend-screen opacity-50">
+        </div>
+    </section>
+    <section
+        class="bg-slate-100 dark:bg-background-dark py-20 px-4 md:px-10 overflow-hidden transition-colors duration-300">
+        <div class="max-w-[1400px] mx-auto">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+                <div>
+                    <h2
+                        class="text-4xl md:text-5xl font-serif font-bold tracking-tight text-slate-900 dark:text-white mb-4">
+                        Visual Anthology</h2>
+                    <p class="text-slate-600 dark:text-slate-400 max-w-md">Moments captured by our community of
+                        travelers. Share your story
+                        with #WanderlustCinema.</p>
+                </div>
+                <button
+                    class="px-6 py-3 rounded-xl bg-slate-200 dark:bg-white/5 border border-slate-300 dark:border-white/10 text-slate-900 dark:text-white font-medium hover:bg-slate-300 dark:hover:bg-white/10 transition-colors self-start md:self-auto">
+                    Follow Our Journey
+                </button>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-2 h-[600px] md:h-[500px]">
+                <div class="relative group overflow-hidden rounded-lg row-span-2 col-span-1">
+                    <img alt="Traveler looking at mountains"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0"
+                        data-alt="Person standing on a cliff overlooking a vast valley" src="../public/images/dest_img_2.jpg" />
+                    <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors"></div>
+                </div>
+                <div class="relative group overflow-hidden rounded-lg col-span-1 md:col-span-2">
+                    <img alt="Delicious food spread"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0"
+                        data-alt="Top down view of a rich culinary feast" src="../public/images/dest_img_3.jpg" />
+                    <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors"></div>
+                </div>
+                <div class="relative group overflow-hidden rounded-lg col-span-1 md:row-span-2">
+                    <img alt="Venice canals"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0"
+                        data-alt="Gondola in Venice canal water" src="../public/images/dest_img_4.jpg" />
+                    <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors"></div>
+                </div>
+                <div class="relative group overflow-hidden rounded-lg col-span-1">
+                    <img alt="Tokyo neon streets"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0"
+                        data-alt="Neon signs in a rainy city street at night" src="../public/images/dest_img_5.jpg" />
+                    <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors"></div>
+                </div>
+                <div class="relative group overflow-hidden rounded-lg col-span-1">
+                    <img alt="Swiss Alps lake"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0"
+                        data-alt="Serene lake reflection of mountains in Switzerland" src="../public/images/dest_img_6.jpg" />
+                    <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="bg-slate-950 text-white pt-24 pb-12 px-6 relative overflow-hidden">
+        <div class="absolute inset-0 bg-topo-pattern opacity-10 pointer-events-none"></div>
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="grid lg:grid-cols-4 gap-12 mb-20">
+                <div class="col-span-1 lg:col-span-1">
+                    <div class="flex items-center gap-2 mb-8">
+                        <div class="w-10 h-10 bg-primary rounded-xl flex items-center justify-center">
+                            <span class="material-symbols-outlined text-white">terrain</span>
+                        </div>
+                        <span class="text-2xl font-serif font-bold tracking-tight italic">Monks<span
+                                class="text-primary not-italic font-sans">Trip</span></span>
+                    </div>
+                    <p class="text-slate-400 leading-relaxed mb-8">
+                        Your gateway to extraordinary adventures. We specialize in creating high-end, personalized
+                        travel experiences that leave lasting impressions.
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <a class="w-10 h-10 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center hover:bg-primary hover:border-primary transition-all"
+                            href="#">
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                <path
+                                    d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z">
+                                </path>
+                            </svg>
+                        </a>
+                        <a class="w-10 h-10 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center hover:bg-primary hover:border-primary transition-all"
+                            href="#">
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z">
+                                </path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h6 class="text-lg font-serif font-bold mb-8">Quick Links</h6>
+                    <ul class="space-y-4 text-slate-400">
+                        <li><a class="hover:text-primary transition-colors" href="#">About Us</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Destinations</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Our Services</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h6 class="text-lg font-serif font-bold mb-8">Support</h6>
+                    <ul class="space-y-4 text-slate-400">
+                        <li><a class="hover:text-primary transition-colors" href="#">Help Center</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Contact Support</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Privacy Policy</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">FAQs</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h6 class="text-lg font-serif font-bold mb-8">Get Travel Inspiration</h6>
+                    <p class="text-slate-400 text-sm mb-6 leading-relaxed">Subscribe to receive exclusive offers and
+                        weekly travel guides.</p>
+                    <form class="space-y-3">
+                        <input
+                            class="w-full bg-slate-900 border-slate-800 rounded-xl px-4 py-3 text-sm focus:ring-primary focus:border-primary transition-all"
+                            placeholder="Your email address" type="email" />
+                        <button
+                            class="w-full bg-primary hover:bg-blue-700 text-white font-bold py-3 rounded-xl transition-all"
+                            type="submit">
+                            Subscribe Now
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div
+                class="pt-8 border-t border-slate-900 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-500 font-medium">
+                <p>Â© 2024 MonksTrip. All rights reserved.</p>
+                <div class="flex items-center gap-6">
+                    <a class="hover:text-white transition-colors" href="#">Cookie Policy</a>
+                    <a class="hover:text-white transition-colors" href="#">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Sticky Navbar Transition
+        const nav = document.querySelector('nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                nav.classList.add('py-2', 'bg-white/60', 'dark:bg-slate-900/60', 'backdrop-blur-lg');
+                nav.classList.remove('py-4');
+            } else {
+                nav.classList.remove('py-2', 'bg-white/60', 'dark:bg-slate-900/60', 'backdrop-blur-lg');
+                nav.classList.add('py-4');
+            }
+        });
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = mobileMenuBtn ? mobileMenuBtn.querySelector('.material-symbols-outlined') : null;
+
+        if (mobileMenuBtn && mobileMenu && menuIcon) {
+            mobileMenuBtn.addEventListener('click', () => {
+                const isMenuOpen = mobileMenu.classList.contains('translate-y-0');
+
+                if (isMenuOpen) {
+                    // Close menu
+                    mobileMenu.classList.remove('translate-y-0');
+                    mobileMenu.classList.add('-translate-y-full');
+                    menuIcon.textContent = 'menu';
+                    document.body.style.overflow = '';
+                } else {
+                    // Open menu
+                    mobileMenu.classList.remove('-translate-y-full');
+                    mobileMenu.classList.add('translate-y-0');
+                    menuIcon.textContent = 'close';
+                    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+                }
+            });
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../lib/supabase-client.js"></script>
+    <script src="js/auth-handler.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html class="scroll-smooth dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Amalfi Coastline | Dynamic Motion Itinerary</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;family=Playfair+Display:ital,wght@0,400;0,700;1,400&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#2563EB",
+                        "background-dark": "#0F1729",
+                    },
+                    fontFamily: {
+                        display: ["Playfair Display", "serif"],
+                        body: ["Manrope", "sans-serif"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "1rem",
+                        '2xl': '1.5rem',
+                        '3xl': '2rem',
+                    },
+                },
+            },
+        };
+    </script>
+    <style type="text/tailwindcss">
+        :root {
+            --primary-color: #2563EB;
+            --bg-dark: #0F1729;
+        }
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .hero-gradient {
+            background: linear-gradient(to bottom, rgba(15, 23, 41, 0.2) 0%, rgba(15, 23, 41, 0.9) 100%);
+        }
+        .ambient-glow-blue {
+            background: radial-gradient(circle, rgba(37, 99, 235, 0.1) 0%, transparent 70%);
+        }
+        .ambient-glow-orange {
+            background: radial-gradient(circle, rgba(249, 115, 22, 0.05) 0%, transparent 70%);
+        }
+        .ken-burns {
+            animation: kenburns 20s infinite alternate linear;
+        }
+        @keyframes kenburns {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.1); }
+        }
+        .masonry {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-auto-rows: 200px;
+            gap: 1rem;
+        }
+        .masonry-item:nth-child(2n) { grid-row: span 2; }
+        .masonry-item:nth-child(3n) { grid-row: span 1.5; }
+    </style>
+</head>
+
+<body class="bg-background-dark text-slate-100 font-body transition-colors duration-300">
+    <nav class="fixed top-0 w-full z-50 transition-all duration-300 py-4">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div
+                class="flex shrink-0 items-center gap-2 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md px-4 py-2 rounded-full border border-slate-200 dark:border-white/10 shadow-sm transition-all duration-300">
+                <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+                    <span class="material-symbols-outlined text-white text-lg">terrain</span>
+                </div>
+                <span
+                    class="text-lg font-extrabold tracking-tight font-serif italic text-slate-900 dark:text-white">Monks<span
+                        class="text-primary not-italic font-sans">Trip</span></span>
+            </div>
+            <div
+                class="hidden md:flex shrink-0 items-center gap-8 text-sm font-medium tracking-wide px-8 py-3 rounded-full border border-slate-200 dark:border-white/10 bg-white/80 dark:bg-slate-900/60 backdrop-blur-md shadow-lg transition-all duration-300">
+                <a class="text-slate-600 dark:text-slate-200 hover:text-primary dark:hover:text-primary transition-colors"
+                    href="../index.html">Home</a>
+                <a class="text-primary font-semibold transition-colors" href="destination.html">Destinations</a>
+                <a class="text-slate-600 dark:text-slate-200 hover:text-primary dark:hover:text-primary transition-colors"
+                    href="services.html">Services</a>
+                <a class="text-slate-600 dark:text-slate-200 hover:text-primary dark:hover:text-primary transition-colors"
+                    href="about.html">About Us</a>
+                <a class="text-slate-600 dark:text-slate-200 hover:text-primary dark:hover:text-primary transition-colors"
+                    href="blog.html">Blog</a>
+            </div>
+            <div class="flex shrink-0 items-center gap-4">
+
+                <a class="bg-primary hover:bg-blue-600 text-white px-6 py-2.5 rounded-full font-bold text-sm flex items-center gap-2 transition-all duration-300 shadow-lg shadow-blue-500/30 hover:shadow-blue-500/50 hover:-translate-y-0.5 active:translate-y-0 active:scale-95 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2 dark:focus:ring-offset-slate-900"
+                    href="booking.html">
+                    Book Now <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <header class="relative h-screen w-full overflow-hidden">
+        <img alt="Cinematic sunset view of Oia, Santorini" class="absolute inset-0 w-full h-full object-cover ken-burns"
+            src="https://images.pexels.com/photos/358223/pexels-photo-358223.jpeg?auto=compress&cs=tinysrgb&w=1600" />
+        <div class="absolute inset-0 hero-gradient"></div>
+        <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
+            <span class="text-primary font-bold tracking-[0.3em] uppercase mb-4 opacity-90">Private Curated
+                Journey</span>
+            <h1
+                class="font-display text-5xl md:text-7xl lg:text-8xl text-white mb-8 max-w-4xl leading-tight tracking-tight">
+                Amalfi Coastline</h1>
+            <div
+                class="glass px-8 py-4 rounded-full flex flex-wrap items-center gap-8 text-white border border-white/20 shadow-xl">
+                <div class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-primary">schedule</span>
+                    <span class="text-slate-200">10 Days</span>
+                </div>
+                <div class="w-px h-6 bg-white/20 hidden md:block"></div>
+                <div class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-primary">calendar_month</span>
+                    <span class="text-slate-200">May - Oct</span>
+                </div>
+                <div class="w-px h-6 bg-white/20 hidden md:block"></div>
+                <div class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-primary">payments</span>
+                    <span class="text-slate-200">From $3,200</span>
+                </div>
+            </div>
+            <a class="mt-12 group flex items-center gap-3 bg-primary hover:bg-blue-700 text-white px-10 py-5 rounded-full text-lg font-bold transition-all shadow-lg hover:shadow-primary/30"
+                href="#booking">
+                Book This Experience
+                <span
+                    class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+            </a>
+        </div>
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
+            <span class="material-symbols-outlined text-white/50 text-4xl font-light">keyboard_double_arrow_down</span>
+        </div>
+    </header>
+    <section class="relative py-32 px-6 overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-full ambient-glow-blue -z-10 opacity-50"></div>
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-20 items-center">
+            <div class="relative group">
+                <div
+                    class="absolute -inset-4 bg-primary/20 blur-3xl rounded-3xl group-hover:bg-primary/30 transition-all opacity-50">
+                </div>
+                <div class="relative rounded-3xl overflow-hidden shadow-2xl aspect-[4/5] w-full">
+                    <img alt="Blue domed church in Santorini" class="w-full h-full object-cover ken-burns"
+                        src="https://images.pexels.com/photos/18771876/pexels-photo-18771876/free-photo-of-town-on-amalfi-coast.jpeg?auto=compress&cs=tinysrgb&w=1600" />
+                </div>
+            </div>
+            <div class="space-y-8">
+                <h2 class="font-display text-4xl md:text-5xl font-bold tracking-tight mb-6">A Coastline Carved by <span
+                        class="italic text-primary">Time and Elegance</span></h2>
+                <div class="space-y-6 text-slate-400 font-light text-lg leading-relaxed">
+                    <p>Experience the ultimate Italian getaway where pastel villages cling to rugged cliffs above the
+                        turquoise Mediterranean. This cinematic journey is designed for the discerning traveler who
+                        seeks a
+                        blend of mythic history and modern luxury.</p>
+                    <p>From private yacht tours to Positano to intimate pasta making classes in historic cliffside lemon
+                        groves,
+                        every moment is curated to evoke the true spirit of the Cyclades.</p>
+                </div>
+                <div class="grid grid-cols-2 gap-6 pt-6">
+                    <div class="p-8 rounded-2xl glass border-white/5 hover:border-primary/40 transition-all group">
+                        <h4 class="font-bold text-2xl mb-1 text-white group-hover:text-primary transition-colors">Luxury
+                        </h4>
+                        <p class="text-sm text-slate-400">Cliffside Villas</p>
+                    </div>
+                    <div class="p-8 rounded-2xl glass border-white/5 hover:border-primary/40 transition-all group">
+                        <h4 class="font-bold text-2xl mb-1 text-white group-hover:text-primary transition-colors">
+                            Authentic</h4>
+                        <p class="text-sm text-slate-400">Local Cuisine</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-24 relative overflow-hidden">
+        <div class="absolute top-1/2 right-0 w-1/2 h-full ambient-glow-orange -z-10 opacity-30"></div>
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="font-display text-4xl md:text-5xl font-bold tracking-tight mb-4 text-white">Unforgettable
+                    Moments</h2>
+                <p class="text-slate-400">The curated highlights of your Mediterranean escape</p>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-6">
+                <div
+                    class="group p-8 rounded-3xl glass border-white/5 hover:shadow-2xl hover:shadow-primary/20 transition-all text-center">
+                    <span
+                        class="material-symbols-outlined text-primary text-4xl mb-4 group-hover:scale-110 transition-transform inline-block">wb_sunny</span>
+                    <h3 class="font-bold text-lg mb-2 text-white">Positano Charm</h3>
+                    <p class="text-[10px] text-slate-500 uppercase tracking-widest">Iconic Views</p>
+                </div>
+                <div
+                    class="group p-8 rounded-3xl glass border-white/5 hover:shadow-2xl hover:shadow-primary/20 transition-all text-center">
+                    <span
+                        class="material-symbols-outlined text-primary text-4xl mb-4 group-hover:scale-110 transition-transform inline-block">directions_boat</span>
+                    <h3 class="font-bold text-lg mb-2 text-white">Yacht Cruise</h3>
+                    <p class="text-[10px] text-slate-500 uppercase tracking-widest">Private Cruise</p>
+                </div>
+                <div
+                    class="group p-8 rounded-3xl glass border-white/5 hover:shadow-2xl hover:shadow-primary/20 transition-all text-center">
+                    <span
+                        class="material-symbols-outlined text-primary text-4xl mb-4 group-hover:scale-110 transition-transform inline-block">wine_bar</span>
+                    <h3 class="font-bold text-lg mb-2 text-white">Limoncello Tasting</h3>
+                    <p class="text-[10px] text-slate-500 uppercase tracking-widest">Tasting Tour</p>
+                </div>
+                <div
+                    class="group p-8 rounded-3xl glass border-white/5 hover:shadow-2xl hover:shadow-primary/20 transition-all text-center">
+                    <span
+                        class="material-symbols-outlined text-primary text-4xl mb-4 group-hover:scale-110 transition-transform inline-block">restaurant</span>
+                    <h3 class="font-bold text-lg mb-2 text-white">Pasta Masterclass</h3>
+                    <p class="text-[10px] text-slate-500 uppercase tracking-widest">Cliffside Tables</p>
+                </div>
+                <div
+                    class="group p-8 rounded-3xl glass border-white/5 hover:shadow-2xl hover:shadow-primary/20 transition-all text-center">
+                    <span
+                        class="material-symbols-outlined text-primary text-4xl mb-4 group-hover:scale-110 transition-transform inline-block">hiking</span>
+                    <h3 class="font-bold text-lg mb-2 text-white">Path of the Gods</h3>
+                    <p class="text-[10px] text-slate-500 uppercase tracking-widest">Coastal Trek</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-32 px-6 max-w-7xl mx-auto relative">
+        <div
+            class="absolute top-1/4 left-1/2 -translate-x-1/2 w-px h-full bg-gradient-to-b from-primary/50 via-primary/10 to-transparent hidden lg:block">
+        </div>
+        <h2 class="font-display text-4xl md:text-5xl font-bold tracking-tight mb-24 text-center text-white">The Journey
+        </h2>
+        <div class="space-y-40">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-24 items-center">
+                <div class="order-2 lg:order-1 relative lg:text-right">
+                    <div
+                        class="absolute -right-[13px] top-0 w-6 h-6 rounded-full bg-primary shadow-[0_0_20px_rgba(37,99,235,0.6)] z-10 hidden lg:block">
+                    </div>
+                    <span class="text-primary font-bold tracking-widest uppercase mb-4 block">Day 01</span>
+                    <h3 class="font-display text-4xl mb-6 text-white">Arrival & Amalfi Evening</h3>
+                    <p class="text-slate-400 text-lg leading-relaxed mb-8">Arrive at Santorini's Thira airport where
+                        your private chauffeur awaits. Check into your boutique cliffside suite. As the afternoon wanes,
+                        enjoy a private guided walk through the winding streets of Oia.</p>
+                    <ul class="space-y-4 flex flex-col lg:items-end">
+                        <li class="flex items-center gap-3 text-sm text-slate-300"><span
+                                class="material-symbols-outlined text-primary text-base">check_circle</span> Private
+                            Transfer</li>
+                        <li class="flex items-center gap-3 text-sm text-slate-300"><span
+                                class="material-symbols-outlined text-primary text-base">check_circle</span> Luxury
+                            Suite Check-in</li>
+                        <li class="flex items-center gap-3 text-sm text-slate-300"><span
+                                class="material-symbols-outlined text-primary text-base">check_circle</span> Gourmet
+                            Sunset Dinner</li>
+                    </ul>
+                </div>
+                <div class="order-1 lg:order-2 overflow-hidden rounded-3xl shadow-2xl">
+                    <img alt="Day 1 arrival" class="w-full h-full object-cover ken-burns"
+                        src="https://images.pexels.com/photos/10550145/pexels-photo-10550145.jpeg?auto=compress&cs=tinysrgb&w=1600" />
+                </div>
+            </div>
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-24 items-center">
+                <div class="overflow-hidden rounded-3xl shadow-2xl">
+                    <img alt="Day 2 sailing" class="w-full h-full object-cover ken-burns"
+                        src="https://images.pexels.com/photos/18771781/pexels-photo-18771781/free-photo-of-rocky-hills-on-amalfi-coast.jpeg?auto=compress&cs=tinysrgb&w=1600" />
+                </div>
+                <div class="relative">
+                    <div
+                        class="absolute -left-[61px] top-0 w-6 h-6 rounded-full bg-primary shadow-[0_0_20px_rgba(37,99,235,0.6)] z-10 hidden lg:block">
+                    </div>
+                    <span class="text-primary font-bold tracking-widest uppercase mb-4 block">Day 02</span>
+                    <h3 class="font-display text-4xl mb-6 text-white">The Yacht Cruises</h3>
+                    <p class="text-slate-400 text-lg leading-relaxed mb-8">Board a luxury catamaran for a private cruise
+                        around the volcanic caldera. Swim in the thermal hot springs and explore hidden coves. A
+                        Mediterranean lunch is prepared on board.</p>
+                    <ul class="space-y-4">
+                        <li class="flex items-center gap-3 text-sm text-slate-300"><span
+                                class="material-symbols-outlined text-primary text-base">check_circle</span> 5-Hour
+                            Private Cruise</li>
+                        <li class="flex items-center gap-3 text-sm text-slate-300"><span
+                                class="material-symbols-outlined text-primary text-base">check_circle</span> Hot Spring
+                            Bathing</li>
+                        <li class="flex items-center gap-3 text-sm text-slate-300"><span
+                                class="material-symbols-outlined text-primary text-base">check_circle</span> Seafood
+                            Lunch on Deck</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-24 items-center">
+                <div class="order-2 lg:order-1 relative lg:text-right">
+                    <div
+                        class="absolute -right-[13px] top-0 w-6 h-6 rounded-full bg-primary shadow-[0_0_20px_rgba(37,99,235,0.6)] z-10 hidden lg:block">
+                    </div>
+                    <span class="text-primary font-bold tracking-widest uppercase mb-4 block">Day 03</span>
+                    <h3 class="font-display text-4xl mb-6 text-white">Culinary Heart of Italy</h3>
+                    <p class="text-slate-400 text-lg leading-relaxed mb-8">Venture inland to the ancient ruins of
+                        Akrotiri, the "Minoan Pompeii". Later, visit a traditional winery built into the volcanic rock
+                        for a private tasting of the island's unique wines.</p>
+                    <ul class="space-y-4 flex flex-col lg:items-end">
+                        <li class="flex items-center gap-3 text-sm text-slate-300"><span
+                                class="material-symbols-outlined text-primary text-base">check_circle</span> Akrotiri
+                            Guided Tour</li>
+                        <li class="flex items-center gap-3 text-sm text-slate-300"><span
+                                class="material-symbols-outlined text-primary text-base">check_circle</span> Volcanic
+                            Vineyard Visit</li>
+                        <li class="flex items-center gap-3 text-sm text-slate-300"><span
+                                class="material-symbols-outlined text-primary text-base">check_circle</span> 6-Course
+                            Wine Pairing</li>
+                    </ul>
+                </div>
+                <div class="order-1 lg:order-2 overflow-hidden rounded-3xl shadow-2xl">
+                    <img alt="Day 3 vineyard" class="w-full h-full object-cover ken-burns"
+                        src="https://images.pexels.com/photos/31786621/pexels-photo-31786621/free-photo-of-aerial-view-of-colorful-positano-buildings.jpeg?auto=compress&cs=tinysrgb&w=1600" />
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-32 relative">
+        <div class="absolute inset-0 ambient-glow-blue opacity-20"></div>
+        <div class="max-w-[1400px] mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="font-display text-4xl md:text-5xl font-bold tracking-tight text-white mb-4">Island
+                    Perspectives</h2>
+                <p class="text-slate-400">Captured moments from our previous travelers</p>
+            </div>
+            <div class="masonry">
+                <div class="masonry-item overflow-hidden rounded-2xl group relative">
+                    <img alt="Santorini 1"
+                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                        src="https://images.pexels.com/photos/4147762/pexels-photo-4147762.jpeg?auto=compress&cs=tinysrgb&w=1600" />
+                    <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity">
+                    </div>
+                </div>
+                <div class="masonry-item overflow-hidden rounded-2xl group relative">
+                    <img alt="Santorini 2"
+                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                        src="https://images.pexels.com/photos/2998786/pexels-photo-2998786.jpeg?auto=compress&cs=tinysrgb&w=1600" />
+                    <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity">
+                    </div>
+                </div>
+                <div class="masonry-item overflow-hidden rounded-2xl group relative">
+                    <img alt="Santorini 3"
+                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                        src="https://images.pexels.com/photos/10550153/pexels-photo-10550153.jpeg?auto=compress&cs=tinysrgb&w=1600" />
+                    <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity">
+                    </div>
+                </div>
+                <div class="masonry-item overflow-hidden rounded-2xl group relative">
+                    <img alt="Santorini 4"
+                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                        src="https://images.pexels.com/photos/2927972/pexels-photo-2927972.jpeg?auto=compress&cs=tinysrgb&w=1600" />
+                    <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity">
+                    </div>
+                </div>
+                <div class="masonry-item overflow-hidden rounded-2xl group relative">
+                    <img alt="Santorini 5"
+                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                        src="https://images.pexels.com/photos/1842579/pexels-photo-1842579.jpeg?auto=compress&cs=tinysrgb&w=1600" />
+                    <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity">
+                    </div>
+                </div>
+                <div class="masonry-item overflow-hidden rounded-2xl group relative">
+                    <img alt="Santorini 6"
+                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                        src="https://images.pexels.com/photos/2998783/pexels-photo-2998783.jpeg?auto=compress&cs=tinysrgb&w=1600" />
+                    <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-32 px-6 max-w-7xl mx-auto" id="booking">
+        <div class="grid lg:grid-cols-3 gap-16">
+            <div class="lg:col-span-2">
+                <div class="glass p-12 rounded-[3rem] shadow-2xl relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-64 h-64 ambient-glow-blue -z-10 opacity-30"></div>
+                    <h2 class="font-display text-4xl md:text-5xl font-bold tracking-tight mb-12 text-white">What's
+                        Included</h2>
+                    <div class="grid sm:grid-cols-2 gap-12">
+                        <div class="space-y-4">
+                            <h4 class="font-bold text-lg text-white flex items-center gap-3">
+                                <span class="material-symbols-outlined text-primary">hotel</span>
+                                Accommodation
+                            </h4>
+                            <p class="text-slate-400 text-sm leading-relaxed">4 nights in a luxury Boutique Hotel with
+                                Caldera views. Guaranteed private balcony and heated plunge pool.</p>
+                        </div>
+                        <div class="space-y-4">
+                            <h4 class="font-bold text-lg text-white flex items-center gap-3">
+                                <span class="material-symbols-outlined text-primary">restaurant</span>
+                                Gastronomy
+                            </h4>
+                            <p class="text-slate-400 text-sm leading-relaxed">Daily artisan breakfast, 2 fine-dining
+                                dinners, and a curated sunset picnic with local delicacies.</p>
+                        </div>
+                        <div class="space-y-4">
+                            <h4 class="font-bold text-lg text-white flex items-center gap-3">
+                                <span class="material-symbols-outlined text-primary">commute</span>
+                                Transport
+                            </h4>
+                            <p class="text-slate-400 text-sm leading-relaxed">Private VIP transfers from/to airport.
+                                Private chauffeur for all land-based activities mentioned.</p>
+                        </div>
+                        <div class="space-y-4">
+                            <h4 class="font-bold text-lg text-white flex items-center gap-3">
+                                <span class="material-symbols-outlined text-primary">star</span>
+                                Exclusives
+                            </h4>
+                            <p class="text-slate-400 text-sm leading-relaxed">Private sunset catamaran tour, dedicated
+                                concierge service, and professional photography session.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="lg:col-span-1">
+                <div class="glass p-10 rounded-[3rem] shadow-2xl sticky top-32 border-primary/20">
+                    <h3 class="font-display text-3xl mb-8 text-white">Secure Your Spot</h3>
+                    <div class="flex items-end gap-2 mb-10 pb-6 border-b border-white/10">
+                        <span class="text-5xl font-extrabold text-primary">$2,499</span>
+                        <span class="text-slate-400 mb-2">/ person</span>
+                    </div>
+                    <form class="space-y-6">
+                        <div>
+                            <label
+                                class="block text-[10px] font-bold uppercase tracking-widest text-slate-500 mb-3">Full
+                                Name</label>
+                            <input
+                                class="w-full bg-white/5 border border-white/10 rounded-2xl p-4 focus:ring-2 focus:ring-primary focus:border-transparent text-white transition-all outline-none"
+                                placeholder="John Doe" type="text" />
+                        </div>
+                        <div>
+                            <label
+                                class="block text-[10px] font-bold uppercase tracking-widest text-slate-500 mb-3">Email
+                                Address</label>
+                            <input
+                                class="w-full bg-white/5 border border-white/10 rounded-2xl p-4 focus:ring-2 focus:ring-primary focus:border-transparent text-white transition-all outline-none"
+                                placeholder="john@example.com" type="email" />
+                        </div>
+                        <button
+                            class="w-full bg-primary hover:bg-blue-700 text-white font-bold py-6 rounded-2xl shadow-lg transition-all active:scale-[0.98] text-lg">
+                            Reserve My Journey
+                        </button>
+                    </form>
+                    <p class="text-center text-[10px] text-slate-500 mt-8 uppercase tracking-[0.3em] font-medium">No
+                        payment required today</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-32 relative overflow-hidden">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full ambient-glow-orange opacity-10"></div>
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <span class="material-symbols-outlined text-primary text-6xl mb-12 opacity-50">format_quote</span>
+            <div class="space-y-8">
+                <p class="font-display text-3xl md:text-4xl italic leading-relaxed text-slate-200">"The private yacht
+                    cruise along the Amalfi coast
+                    was the highlight of our decade. Everything was handled with such grace and precision. Truly
+                    the most romantic trip we've ever taken."</p>
+                <div class="pt-4">
+                    <h5 class="font-bold text-xl text-white">Eleanor &amp; Marcus</h5>
+                    <p class="text-sm text-slate-500 tracking-wider">London, UK | June 2023</p>
+                </div>
+            </div>
+            <div class="flex justify-center gap-6 mt-16">
+                <button
+                    class="w-14 h-14 rounded-full glass border-white/10 flex items-center justify-center hover:bg-primary hover:border-primary transition-all group">
+                    <span class="material-symbols-outlined text-white group-hover:scale-110">west</span>
+                </button>
+                <button
+                    class="w-14 h-14 rounded-full glass border-white/10 flex items-center justify-center hover:bg-primary hover:border-primary transition-all group">
+                    <span class="material-symbols-outlined text-white group-hover:scale-110">east</span>
+                </button>
+            </div>
+        </div>
+    </section>
+    <section class="relative py-48 overflow-hidden">
+        <img alt="Dinner at dusk" class="absolute inset-0 w-full h-full object-cover ken-burns"
+            src="https://images.pexels.com/photos/18771878/pexels-photo-18771878/free-photo-of-town-on-amalfi-sea-shore-in-italy.jpeg?auto=compress&cs=tinysrgb&w=1600" />
+        <div class="absolute inset-0 bg-slate-950/80 backdrop-blur-[2px]"></div>
+        <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
+            <h2 class="font-display text-4xl md:text-5xl font-bold tracking-tight text-white mb-10 leading-tight">Your
+                Italian Summer <br /><span class="italic text-primary">Awaits</span></h2>
+            <p class="text-xl text-slate-400 mb-14 font-light max-w-2xl mx-auto">Limited availability for the 2024
+                season. Reserve your private caldera escape today.</p>
+            <button
+                class="bg-primary hover:bg-blue-700 text-white px-14 py-7 rounded-full text-xl font-bold transition-all shadow-[0_0_40px_rgba(37,99,235,0.4)] hover:scale-105 active:scale-95">
+                Reserve Your Amalfi Journey
+            </button>
+        </div>
+    </section>
+    <footer class="bg-slate-950 text-white pt-24 pb-12 px-6 relative overflow-hidden">
+        <div class="absolute inset-0 bg-topo-pattern opacity-10 pointer-events-none"></div>
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="grid lg:grid-cols-4 gap-12 mb-20">
+                <div class="col-span-1 lg:col-span-1">
+                    <div class="flex items-center gap-2 mb-8">
+                        <div class="w-10 h-10 bg-primary rounded-xl flex items-center justify-center">
+                            <span class="material-symbols-outlined text-white">terrain</span>
+                        </div>
+                        <span class="text-2xl font-serif font-bold tracking-tight italic">Monks<span
+                                class="text-primary not-italic font-sans">Trip</span></span>
+                    </div>
+                    <p class="text-slate-400 leading-relaxed mb-8">
+                        Your gateway to extraordinary adventures. We specialize in creating high-end, personalized
+                        travel experiences that leave lasting impressions.
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <a class="w-10 h-10 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center hover:bg-primary hover:border-primary transition-all"
+                            href="#">
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                <path
+                                    d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z">
+                                </path>
+                            </svg>
+                        </a>
+                        <a class="w-10 h-10 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center hover:bg-primary hover:border-primary transition-all"
+                            href="#">
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z">
+                                </path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h6 class="text-lg font-serif font-bold mb-8">Quick Links</h6>
+                    <ul class="space-y-4 text-slate-400">
+                        <li><a class="hover:text-primary transition-colors" href="#">About Us</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Destinations</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Our Services</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h6 class="text-lg font-serif font-bold mb-8">Support</h6>
+                    <ul class="space-y-4 text-slate-400">
+                        <li><a class="hover:text-primary transition-colors" href="#">Help Center</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Contact Support</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Privacy Policy</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">FAQs</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h6 class="text-lg font-serif font-bold mb-8">Get Travel Inspiration</h6>
+                    <p class="text-slate-400 text-sm mb-6 leading-relaxed">Subscribe to receive exclusive offers and
+                        weekly travel guides.</p>
+                    <form class="space-y-3">
+                        <input
+                            class="w-full bg-slate-900 border-slate-800 rounded-xl px-4 py-3 text-sm focus:ring-primary focus:border-primary transition-all"
+                            placeholder="Your email address" type="email" />
+                        <button
+                            class="w-full bg-primary hover:bg-blue-700 text-white font-bold py-3 rounded-xl transition-all"
+                            type="submit">
+                            Subscribe Now
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div
+                class="pt-8 border-t border-slate-900 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-500 font-medium">
+                <p>Â© 2024 MonksTrip. All rights reserved.</p>
+                <div class="flex items-center gap-6">
+                    <a class="hover:text-white transition-colors" href="#">Cookie Policy</a>
+                    <a class="hover:text-white transition-colors" href="#">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Sticky Navbar Transition
+        const nav = document.querySelector('nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                nav.classList.add('py-2', 'bg-white/60', 'dark:bg-slate-900/60', 'backdrop-blur-lg');
+                nav.classList.remove('py-4');
+            } else {
+                nav.classList.remove('py-2', 'bg-white/60', 'dark:bg-slate-900/60', 'backdrop-blur-lg');
+                nav.classList.add('py-4');
+            }
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../lib/supabase-client.js"></script>
+    <script src="js/auth-handler.js"></script>
+</body>
+
+</html>
