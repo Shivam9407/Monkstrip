@@ -65,7 +65,9 @@
     <style type="text/tailwindcss">
         @layer components {
             .glass-card {
-                @apply bg-white/5 backdrop-blur-md border border-white/10;
+                background-color: rgb(255 255 255 / 0.05);
+                backdrop-filter: blur(12px);
+                border: 1px solid rgb(255 255 255 / 0.1);
             }
             .text-balance {
                 text-wrap: balance;
@@ -277,7 +279,8 @@
                             src="../public/images/about/hiker_portrait.jpg" />
                     </div>
                     <div class="col-span-1 h-full">
-                        <img alt="Ocean Waves" class="w-full h-full object-cover" src="../public/images/about/ocean_waves.jpg" />
+                        <img alt="Ocean Waves" class="w-full h-full object-cover"
+                            src="../public/images/about/ocean_waves.jpg" />
                     </div>
                     <div class="col-span-4 h-full">
                         <img alt="Maldives Resort" class="w-full h-full object-cover rounded-r-2xl"
@@ -1197,6 +1200,7 @@
         });
     </script>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="../lib/supabase-client.js"></script></body>
+    <script src="../lib/supabase-client.js"></script>
+</body>
 
 </html>
