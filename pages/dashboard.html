@@ -122,7 +122,7 @@
     </main>
 
     <script type="module">
-        import { supabase, getCurrentUser } from './js/supabase-client.js';
+        import { supabase, getCurrentUser } from '../lib/supabase-client.js';
 
         async function initDashboard() {
             const user = await getCurrentUser();
