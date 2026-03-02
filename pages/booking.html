@@ -330,70 +330,75 @@
         </div>
     </footer>
 
-    {
-    event.preventDefault();
+    <script type="module">
+        import { auth, db, onAuthStateChanged, addDoc, collection, serverTimestamp } from '../lib/firebase-client.js';
 
-    // Simulate API call/processing
-    const form = document.getElementById('bookingForm');
-    const successMsg = document.getElementById('successMessage');
-    const btn = form.querySelector('button[type="submit"]');
+        // ── Pre-fill form with logged-in user data ──────────────
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                const nameInput = document.getElementById('name');
+                const emailInput = document.getElementById('email');
+                if (user.displayName && nameInput) nameInput.value = user.displayName;
+                if (user.email && emailInput) emailInput.value = user.email;
+            }
+        });
 
-    // Loading state
-    btn.innerHTML = '<span class="animate-spin material-symbols-outlined text-sm">refresh</span> Processing...';
-    btn.classList.add('opacity-75', 'cursor-wait');
+        // ── Booking form submit ─────────────────────────────────
+        async function handleSubmit(event) {
+            event.preventDefault();
 
-    setTimeout(() => {
-    form.classList.add('hidden');
-    successMsg.classList.remove('hidden');
-    successMsg.classList.add('flex');
-    }, 1500);
-    }
+            const form = document.getElementById('bookingForm');
+            const successMsg = document.getElementById('successMessage');
+            const btn = form.querySelector('button[type="submit"]');
 
-    // Sticky Navbar Logic (Copied from index.html)
-    window.addEventListener('scroll', () => {
-    const navbar = document.querySelector('nav');
-    const logoContainer = navbar.querySelector('div > div:first-child');
-    const navLinks = navbar.querySelector('.hidden.md\\:flex');
+            // Loading state
+            btn.innerHTML = '<span class="material-symbols-outlined text-sm" style="animation:spin 0.8s linear infinite;display:inline-block">refresh</span> Processing...';
+            btn.classList.add('opacity-75', 'cursor-wait');
+            btn.disabled = true;
 
-    if (window.scrollY > 20) {
-    // Scrolled state
-    navbar.classList.replace('py-4', 'py-2');
+            const user = auth.currentUser;
 
-    // Navbar background (if you want the whole nav bar to have a background,
-    // but our design puts backgrounds on the pills.
-    // So we primarily want to reduce size/padding)
-    } else {
-    // Top state
-    navbar.classList.replace('py-2', 'py-4');
-    }
-    });
-    // Mobile Menu Toggle
-    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const menuIcon = mobileMenuBtn ? mobileMenuBtn.querySelector('.material-symbols-outlined') : null;
+            try {
+                const bookingData = {
+                    name: document.getElementById('name').value.trim(),
+                    email: document.getElementById('email').value.trim(),
+                    destination: document.getElementById('destination').value,
+                    departureDate: document.getElementById('date').value,
+                    travelers: parseInt(document.getElementById('travelers').value),
+                    message: document.getElementById('message').value.trim(),
+                    userId: user ? user.uid : null,
+                    status: 'pending',
+                    createdAt: serverTimestamp()
+                };
 
-    if (mobileMenuBtn && mobileMenu && menuIcon) {
-    mobileMenuBtn.addEventListener('click', () => {
-    const isMenuOpen = mobileMenu.classList.contains('translate-y-0');
+                await addDoc(collection(db, 'bookings'), bookingData);
 
-    if (isMenuOpen) {
-    // Close menu
-    mobileMenu.classList.remove('translate-y-0');
-    mobileMenu.classList.add('-translate-y-full');
-    menuIcon.textContent = 'menu';
-    document.body.style.overflow = '';
-    } else {
-    // Open menu
-    mobileMenu.classList.remove('-translate-y-full');
-    mobileMenu.classList.add('translate-y-0');
-    menuIcon.textContent = 'close';
-    document.body.style.overflow = 'hidden'; // Prevent background scrolling
-    }
-    });
-    }
+                // Show success
+                form.classList.add('hidden');
+                successMsg.classList.remove('hidden');
+                successMsg.classList.add('flex');
+
+            } catch (err) {
+                console.error('Booking error:', err);
+                btn.innerHTML = 'Start My Journey <span class="material-symbols-outlined text-sm">arrow_forward</span>';
+                btn.classList.remove('opacity-75', 'cursor-wait');
+                btn.disabled = false;
+                alert('Something went wrong. Please try again.');
+            }
+        }
+
+        window.handleSubmit = handleSubmit;
+
+        // ── Sticky Navbar ───────────────────────────────────────
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('nav');
+            if (window.scrollY > 20) {
+                navbar.classList.replace('py-4', 'py-2');
+            } else {
+                navbar.classList.replace('py-2', 'py-4');
+            }
+        });
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="../lib/supabase-client.js"></script>
 </body>
 
 </html>

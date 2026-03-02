@@ -38,6 +38,12 @@
             -webkit-backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
+
+        .avatar-ring {
+            background: linear-gradient(135deg, #2563eb, #7c3aed);
+            padding: 2px;
+            border-radius: 50%;
+        }
     </style>
 </head>
 
@@ -55,7 +61,11 @@
                         class="text-primary not-italic font-sans">Trip</span></span>
             </a>
             <div class="flex items-center gap-4">
-                <button onclick="window.signOut()"
+                <a href="../index.html"
+                    class="text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-sm font-medium transition-colors hidden md:block">Home</a>
+                <a href="destination.html"
+                    class="text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-sm font-medium transition-colors hidden md:block">Destinations</a>
+                <button id="sign-out-btn"
                     class="text-slate-600 dark:text-slate-400 hover:text-red-500 flex items-center gap-2 font-medium text-sm transition-colors">
                     <span class="material-symbols-outlined text-sm">logout</span> Sign Out
                 </button>
@@ -64,92 +74,187 @@
     </nav>
 
     <main class="flex-grow max-w-7xl mx-auto px-6 py-12 w-full">
-        <h1 class="text-4xl font-serif font-bold mb-8 text-primary">Welcome to your Dashboard</h1>
+        <!-- Welcome Header -->
+        <div class="mb-10">
+            <p class="text-slate-500 dark:text-slate-400 text-sm font-medium mb-1">Welcome back,</p>
+            <h1 id="profile-name" class="text-4xl font-serif font-bold text-primary">Traveler</h1>
+        </div>
 
         <div class="grid md:grid-cols-3 gap-8">
+            <!-- Profile Card -->
             <div class="glass-panel p-8 rounded-3xl md:col-span-1 border border-slate-200 dark:border-slate-800">
                 <div class="flex flex-col items-center text-center">
-                    <div
-                        class="w-24 h-24 bg-slate-200 dark:bg-slate-800 rounded-full flex items-center justify-center mb-4 text-slate-400">
-                        <span class="material-symbols-outlined text-4xl">person</span>
+                    <div id="avatar-container" class="mb-4">
+                        <div
+                            class="w-24 h-24 bg-slate-200 dark:bg-slate-800 rounded-full flex items-center justify-center text-slate-400">
+                            <span class="material-symbols-outlined text-4xl">person</span>
+                        </div>
                     </div>
-                    <h2 id="profile-name" class="text-xl font-bold mb-1">Traveler</h2>
-                    <p id="profile-email" class="text-slate-500 dark:text-slate-400 text-sm mb-6">Loading...</p>
-                    <button
-                        class="w-full bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-900 dark:text-white py-2 rounded-xl text-sm font-medium transition-colors">Edit
-                        Profile</button>
+                    <h2 id="display-name" class="text-xl font-bold mb-1 dark:text-white">Loading...</h2>
+                    <p id="profile-email" class="text-slate-500 dark:text-slate-400 text-sm mb-1">—</p>
+                    <div id="provider-badge" class="mb-6"></div>
+                    <a href="booking.html"
+                        class="w-full bg-primary hover:bg-blue-600 text-white py-2.5 rounded-xl text-sm font-bold transition-colors flex items-center justify-center gap-2">
+                        <span class="material-symbols-outlined text-sm">flight_takeoff</span>
+                        Book a Trip
+                    </a>
                 </div>
             </div>
 
             <div class="md:col-span-2 space-y-8">
+                <!-- Your Trips -->
                 <div class="glass-panel p-8 rounded-3xl border border-slate-200 dark:border-slate-800">
-                    <h3 class="text-2xl font-serif font-bold mb-4">Your Upcoming Trips</h3>
-                    <div class="space-y-4">
-                        <div
-                            class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-100 dark:border-slate-800 flex items-center justify-between">
-                            <div class="flex items-center gap-4">
-                                <div
-                                    class="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center text-primary">
-                                    <span class="material-symbols-outlined">flight_takeoff</span>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-slate-900 dark:text-white">Santorini Sunsets</h4>
-                                    <p class="text-xs text-slate-500">Oct 15 - Oct 22, 2024</p>
-                                </div>
-                            </div>
+                    <h3 class="text-2xl font-serif font-bold mb-4 dark:text-white">Your Upcoming Trips</h3>
+                    <div id="trips-container" class="space-y-4">
+                        <!-- Trips loaded dynamically from Firestore -->
+                        <div class="text-center py-8" id="no-trips">
                             <span
-                                class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 text-xs font-bold rounded-full">Confirmed</span>
-                        </div>
-                        <!-- Add empty state for when no trips -->
-                        <div class="text-center py-6 hidden" id="no-trips">
-                            <span
-                                class="material-symbols-outlined text-4xl text-slate-300 dark:text-slate-700 mb-2">luggage</span>
-                            <p class="text-slate-500 dark:text-slate-400">No upcoming trips yet.</p>
-                            <a href="destination.html"
-                                class="text-primary font-bold text-sm mt-2 inline-block hover:underline">Explore
-                                Destinations</a>
+                                class="material-symbols-outlined text-5xl text-slate-300 dark:text-slate-700 mb-3 block">luggage</span>
+                            <p class="text-slate-500 dark:text-slate-400 mb-3">No upcoming trips yet.</p>
+                            <a href="booking.html"
+                                class="text-primary font-bold text-sm hover:underline inline-flex items-center gap-1">
+                                Plan your first trip
+                                <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                            </a>
                         </div>
                     </div>
                 </div>
 
+                <!-- Account Info -->
                 <div class="glass-panel p-8 rounded-3xl border border-slate-200 dark:border-slate-800">
-                    <h3 class="text-2xl font-serif font-bold mb-4">Saved Experiences</h3>
+                    <h3 class="text-2xl font-serif font-bold mb-4 dark:text-white">Account Info</h3>
+                    <div class="space-y-3 text-sm">
+                        <div
+                            class="flex items-center justify-between py-2 border-b border-slate-200 dark:border-slate-700">
+                            <span class="text-slate-500 dark:text-slate-400 font-medium">Email</span>
+                            <span id="info-email" class="dark:text-white font-medium">—</span>
+                        </div>
+                        <div
+                            class="flex items-center justify-between py-2 border-b border-slate-200 dark:border-slate-700">
+                            <span class="text-slate-500 dark:text-slate-400 font-medium">Member Since</span>
+                            <span id="info-joined" class="dark:text-white font-medium">—</span>
+                        </div>
+                        <div class="flex items-center justify-between py-2">
+                            <span class="text-slate-500 dark:text-slate-400 font-medium">Sign-In Method</span>
+                            <span id="info-provider" class="dark:text-white font-medium">—</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Saved Experiences -->
+                <div class="glass-panel p-8 rounded-3xl border border-slate-200 dark:border-slate-800">
+                    <h3 class="text-2xl font-serif font-bold mb-2 dark:text-white">Saved Experiences</h3>
                     <p class="text-slate-500 dark:text-slate-400 text-sm">You haven't saved any experiences yet. Start
                         exploring to build your dream itinerary.</p>
+                    <a href="destination.html"
+                        class="mt-4 inline-flex items-center gap-2 text-primary font-bold text-sm hover:underline">
+                        Explore Destinations
+                        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                    </a>
                 </div>
             </div>
         </div>
     </main>
 
     <script type="module">
-        import { supabase, getCurrentUser } from '../lib/supabase-client.js';
+        import {
+            auth, db,
+            onAuthStateChanged, signOut,
+            doc, getDoc, collection,
+            serverTimestamp
+        } from '../lib/firebase-client.js';
 
-        async function initDashboard() {
-            const user = await getCurrentUser();
+        import { query, where, getDocs, orderBy, limit } from
+            'https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js';
+
+        const profileNameEl = document.getElementById('profile-name');
+        const displayNameEl = document.getElementById('display-name');
+        const emailEl = document.getElementById('profile-email');
+        const infoEmailEl = document.getElementById('info-email');
+        const infoJoinedEl = document.getElementById('info-joined');
+        const infoProviderEl = document.getElementById('info-provider');
+        const providerBadge = document.getElementById('provider-badge');
+        const avatarContainer = document.getElementById('avatar-container');
+        const tripsContainer = document.getElementById('trips-container');
+        const noTrips = document.getElementById('no-trips');
+        const signOutBtn = document.getElementById('sign-out-btn');
+
+        signOutBtn.addEventListener('click', () => signOut());
+
+        onAuthStateChanged(auth, async (user) => {
             if (!user) {
-                // Not logged in, redirect to login
                 window.location.href = 'login.html';
                 return;
             }
 
-            // Update UI with user data
-            const emailEl = document.getElementById('profile-email');
-            const nameEl = document.getElementById('profile-name');
+            // ── Basic user data ────────────────────────
+            const displayName = user.displayName || 'Traveler';
+            const email = user.email;
+            const provider = user.providerData[0]?.providerId || 'email';
+            const createdAt = new Date(parseInt(user.metadata.createdAt));
 
-            if (user.email) emailEl.textContent = user.email;
+            profileNameEl.textContent = displayName.split(' ')[0];
+            displayNameEl.textContent = displayName;
+            emailEl.textContent = email;
+            infoEmailEl.textContent = email;
+            infoJoinedEl.textContent = createdAt.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+            infoProviderEl.textContent = provider === 'google.com' ? 'Google' : 'Email & Password';
 
-            // Try to get name from user metadata or profile table
-            if (user.user_metadata?.full_name) {
-                nameEl.textContent = user.user_metadata.full_name;
+            // Provider badge
+            providerBadge.innerHTML = provider === 'google.com'
+                ? `<span class="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">
+                     <svg width="12" height="12" viewBox="0 0 48 48"><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/></svg>
+                     Google Account
+                   </span>`
+                : `<span class="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-bold bg-slate-500/10 text-slate-400 border border-slate-500/20">
+                     <span class="material-symbols-outlined text-xs">mail</span> Email Account
+                   </span>`;
+
+            // Avatar (photo or initial)
+            if (user.photoURL) {
+                avatarContainer.innerHTML = `
+                    <div class="avatar-ring">
+                        <img src="${user.photoURL}" alt="${displayName}" class="w-24 h-24 rounded-full object-cover" />
+                    </div>`;
             } else {
-                const { data, error } = await supabase.from('profiles').select('full_name').eq('id', user.id).single();
-                if (!error && data?.full_name) {
-                    nameEl.textContent = data.full_name;
-                }
+                const initial = displayName.charAt(0).toUpperCase();
+                avatarContainer.innerHTML = `
+                    <div class="w-24 h-24 bg-gradient-to-br from-primary to-blue-700 rounded-full flex items-center justify-center text-white text-3xl font-bold shadow-lg shadow-blue-500/30">
+                        ${initial}
+                    </div>`;
             }
-        }
 
-        document.addEventListener('DOMContentLoaded', initDashboard);
+            // ── Load Trips from Firestore ──────────────
+            try {
+                const bookingsRef = collection(db, 'bookings');
+                const q = query(bookingsRef, where('userId', '==', user.uid), orderBy('createdAt', 'desc'), limit(5));
+                const snapshot = await getDocs(q);
+
+                if (!snapshot.empty) {
+                    noTrips.classList.add('hidden');
+                    const tripCards = snapshot.docs.map(docSnap => {
+                        const d = docSnap.data();
+                        const date = d.departureDate ? new Date(d.departureDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : 'TBD';
+                        return `
+                        <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-100 dark:border-slate-800 flex items-center justify-between">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center text-primary shrink-0">
+                                    <span class="material-symbols-outlined">flight_takeoff</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-slate-900 dark:text-white capitalize">${d.destination || 'Custom Trip'}</h4>
+                                    <p class="text-xs text-slate-500">Departing ${date} · ${d.travelers || 1} traveler(s)</p>
+                                </div>
+                            </div>
+                            <span class="px-3 py-1 bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-400 text-xs font-bold rounded-full shrink-0">Pending</span>
+                        </div>`;
+                    }).join('');
+                    tripsContainer.innerHTML = tripCards;
+                }
+            } catch (err) {
+                console.warn('Could not load bookings:', err.message);
+            }
+        });
     </script>
 </body>
 

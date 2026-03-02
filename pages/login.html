@@ -33,16 +33,39 @@
     </script>
     <style>
         .auth-bg {
-            background-image: url('images/img_4.jpg');
+            background-image: url('../assets/images/img_4.jpg');
             background-size: cover;
             background-position: center;
         }
 
         .glass-panel {
-            background: rgba(30, 41, 59, 0.8);
+            background: rgba(30, 41, 59, 0.85);
             backdrop-filter: blur(24px);
             -webkit-backdrop-filter: blur(24px);
             border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .google-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        .google-btn:hover {
+            background: rgba(255, 255, 255, 0.12);
+            border-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-1px);
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .spin {
+            animation: spin 0.8s linear infinite;
+            display: inline-block;
         }
     </style>
 </head>
@@ -64,22 +87,45 @@
 
         <!-- Auth Container -->
         <div class="flex-grow flex items-center justify-center w-full">
-            <div
-                class="glass-panel w-full max-w-md p-10 rounded-[2rem] shadow-2xl animate-fade-in relative overflow-hidden">
+            <div class="glass-panel w-full max-w-md p-10 rounded-[2rem] shadow-2xl relative overflow-hidden">
 
                 <!-- Glow effect -->
                 <div
                     class="absolute top-0 right-0 w-64 h-64 bg-primary/20 rounded-full blur-[80px] pointer-events-none -mr-20 -mt-20">
                 </div>
 
-                <div id="auth-form-container" class="relative z-10 transition-all duration-300">
-                    <div class="text-center mb-10">
+                <div id="auth-form-container" class="relative z-10">
+                    <div class="text-center mb-8">
                         <h1 id="auth-title" class="text-3xl font-serif font-bold text-white mb-2">Welcome Back</h1>
                         <p id="auth-subtitle" class="text-slate-400 text-sm">Sign in to access your curated journeys.
                         </p>
                     </div>
 
-                    <form id="auth-form" class="space-y-6">
+                    <!-- Google Sign-In Button -->
+                    <button id="google-btn"
+                        class="google-btn w-full flex items-center justify-center gap-3 py-3 rounded-xl mb-6 text-white font-medium text-sm cursor-pointer">
+                        <svg width="18" height="18" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                            <path fill="#EA4335"
+                                d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z" />
+                            <path fill="#4285F4"
+                                d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z" />
+                            <path fill="#FBBC05"
+                                d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z" />
+                            <path fill="#34A853"
+                                d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z" />
+                            <path fill="none" d="M0 0h48v48H0z" />
+                        </svg>
+                        Continue with Google
+                    </button>
+
+                    <!-- Divider -->
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="flex-1 h-px bg-slate-700"></div>
+                        <span class="text-slate-500 text-xs font-medium">OR</span>
+                        <div class="flex-1 h-px bg-slate-700"></div>
+                    </div>
+
+                    <form id="auth-form" class="space-y-5">
                         <div id="name-field" class="hidden space-y-2">
                             <label for="fullName" class="text-xs font-bold uppercase tracking-wider text-slate-400">Full
                                 Name</label>
@@ -100,25 +146,26 @@
                             <div class="flex justify-between items-center">
                                 <label for="password"
                                     class="text-xs font-bold uppercase tracking-wider text-slate-400">Password</label>
-                                <a href="#" id="forgot-password-link"
-                                    class="text-xs text-primary hover:underline transition-all">Forgot password?</a>
+                                <button type="button" id="forgot-password-link"
+                                    class="text-xs text-primary hover:underline transition-all focus:outline-none">Forgot
+                                    password?</button>
                             </div>
                             <input type="password" id="password" required
                                 class="w-full bg-slate-900/50 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all placeholder:text-slate-600"
                                 placeholder="••••••••">
                         </div>
 
-                        <!-- Error/Success Message Container -->
+                        <!-- Error/Success Message -->
                         <div id="auth-message" class="hidden text-sm p-3 rounded-lg border"></div>
 
                         <button type="submit" id="submit-btn"
                             class="w-full bg-primary hover:bg-blue-600 text-white font-bold py-3.5 rounded-xl transition-all shadow-lg shadow-blue-500/30 flex justify-center items-center gap-2">
-                            <span>Sign In</span>
-                            <span class="material-symbols-outlined text-sm hidden" id="loading-spinner">sync</span>
+                            <span id="btn-label">Sign In</span>
+                            <span class="material-symbols-outlined text-sm hidden spin" id="loading-spinner">sync</span>
                         </button>
                     </form>
 
-                    <div class="mt-8 text-center text-sm text-slate-400">
+                    <div class="mt-6 text-center text-sm text-slate-400">
                         <span id="toggle-text">Don't have an account?</span>
                         <button id="toggle-mode-btn"
                             class="text-primary font-bold hover:underline ml-1 focus:outline-none transition-all">Create
@@ -130,130 +177,156 @@
     </div>
 
     <script type="module">
-        import { supabase } from '../lib/supabase-client.js';
+        import {
+            auth, db, googleProvider,
+            createUserWithEmailAndPassword,
+            signInWithEmailAndPassword,
+            sendPasswordResetEmail,
+            signInWithPopup,
+            updateProfile,
+            onAuthStateChanged,
+            createUserProfile
+        } from '../lib/firebase-client.js';
 
         let isSignUpMode = false;
 
         const form = document.getElementById('auth-form');
         const emailInput = document.getElementById('email');
-        const passwordInput = document.getElementById('password');
+        const passInput = document.getElementById('password');
         const nameInput = document.getElementById('fullName');
         const nameField = document.getElementById('name-field');
         const submitBtn = document.getElementById('submit-btn');
-        const btnText = submitBtn.querySelector('span:first-child');
+        const btnLabel = document.getElementById('btn-label');
         const spinner = document.getElementById('loading-spinner');
         const title = document.getElementById('auth-title');
         const subtitle = document.getElementById('auth-subtitle');
         const toggleBtn = document.getElementById('toggle-mode-btn');
         const toggleText = document.getElementById('toggle-text');
-        const forgotPasswordLink = document.getElementById('forgot-password-link');
-        const messageBox = document.getElementById('auth-message');
+        const forgotBtn = document.getElementById('forgot-password-link');
+        const msgBox = document.getElementById('auth-message');
+        const googleBtn = document.getElementById('google-btn');
 
-        // Toggle between Sign In and Sign Up modes
+        // If already authenticated, skip to dashboard
+        onAuthStateChanged(auth, (user) => {
+            if (user) window.location.href = 'dashboard.html';
+        });
+
+        // ── Toggle Sign In / Sign Up ──────────────────────
         toggleBtn.addEventListener('click', () => {
             isSignUpMode = !isSignUpMode;
-
-            // Clear errors
-            messageBox.classList.add('hidden');
-
+            msgBox.classList.add('hidden');
             if (isSignUpMode) {
                 title.textContent = 'Join MonksTrip';
                 subtitle.textContent = 'Start planning your unforgettable journey.';
-                btnText.textContent = 'Create Account';
+                btnLabel.textContent = 'Create Account';
                 toggleText.textContent = 'Already have an account?';
                 toggleBtn.textContent = 'Sign In';
                 nameField.classList.remove('hidden');
                 nameInput.required = true;
-                forgotPasswordLink.classList.add('hidden');
+                forgotBtn.classList.add('hidden');
             } else {
                 title.textContent = 'Welcome Back';
                 subtitle.textContent = 'Sign in to access your curated journeys.';
-                btnText.textContent = 'Sign In';
+                btnLabel.textContent = 'Sign In';
                 toggleText.textContent = "Don't have an account?";
                 toggleBtn.textContent = 'Create one';
                 nameField.classList.add('hidden');
                 nameInput.required = false;
-                forgotPasswordLink.classList.remove('hidden');
+                forgotBtn.classList.remove('hidden');
             }
         });
 
-        function showMessage(type, message) {
-            messageBox.classList.remove('hidden', 'bg-red-500/10', 'border-red-500/50', 'text-red-400', 'bg-green-500/10', 'border-green-500/50', 'text-green-400');
-
-            if (type === 'error') {
-                messageBox.classList.add('bg-red-500/10', 'border-red-500/50', 'text-red-400');
-            } else {
-                messageBox.classList.add('bg-green-500/10', 'border-green-500/50', 'text-green-400');
-            }
-
-            messageBox.textContent = message;
+        // ── Message helper ────────────────────────────────
+        function showMessage(type, text) {
+            msgBox.classList.remove('hidden',
+                'bg-red-500/10', 'border-red-500/50', 'text-red-400',
+                'bg-green-500/10', 'border-green-500/50', 'text-green-400');
+            msgBox.classList.add(
+                type === 'error'
+                    ? 'bg-red-500/10' : 'bg-green-500/10',
+                type === 'error'
+                    ? 'border-red-500/50' : 'border-green-500/50',
+                type === 'error'
+                    ? 'text-red-400' : 'text-green-400'
+            );
+            msgBox.textContent = text;
         }
 
+        // ── Loading state helpers ─────────────────────────
+        function setLoading(on) {
+            submitBtn.disabled = on;
+            spinner.classList.toggle('hidden', !on);
+        }
+
+        // ── Email / Password Submit ───────────────────────
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
-
-            // Re-hide message and show loading UI
-            messageBox.classList.add('hidden');
-            submitBtn.disabled = true;
-            spinner.classList.remove('hidden');
-            spinner.classList.add('animate-spin');
-
-            const email = emailInput.value;
-            const password = passwordInput.value;
+            msgBox.classList.add('hidden');
+            setLoading(true);
+            const email = emailInput.value.trim();
+            const password = passInput.value;
 
             try {
                 if (isSignUpMode) {
-                    const fullName = nameInput.value;
-                    const { data, error } = await supabase.auth.signUp({
-                        email,
-                        password,
-                        options: {
-                            data: {
-                                full_name: fullName,
-                            }
-                        }
-                    });
-
-                    if (error) throw error;
-
-                    if (data?.user?.identities?.length === 0) {
-                        showMessage('error', 'An account with this email already exists and is unverified. Please check your email or try signing in.');
-                    } else if (data?.session) {
-                        // Session established immediately
-                        window.location.href = 'dashboard.html';
-                    } else {
-                        showMessage('success', 'Registration successful! Please check your email to verify your account before logging in.');
-                        // Switch to sign in mode
-                        toggleBtn.click();
-                    }
-
+                    const fullName = nameInput.value.trim();
+                    const cred = await createUserWithEmailAndPassword(auth, email, password);
+                    await updateProfile(cred.user, { displayName: fullName });
+                    await createUserProfile(cred.user, { displayName: fullName });
+                    window.location.href = 'dashboard.html';
                 } else {
-                    const { data, error } = await supabase.auth.signInWithPassword({
-                        email,
-                        password,
-                    });
-
-                    if (error) throw error;
-
-                    // Specific logic for Supabase success behavior
-                    if (data.session) {
-                        window.location.href = 'dashboard.html';
-                    }
+                    await signInWithEmailAndPassword(auth, email, password);
+                    window.location.href = 'dashboard.html';
                 }
             } catch (err) {
-                showMessage('error', err.message);
+                const msgs = {
+                    'auth/email-already-in-use': 'An account with this email already exists.',
+                    'auth/weak-password': 'Password must be at least 6 characters.',
+                    'auth/invalid-credential': 'Invalid email or password.',
+                    'auth/user-not-found': 'No account found with this email.',
+                    'auth/wrong-password': 'Incorrect password.',
+                    'auth/too-many-requests': 'Too many attempts. Please try again later.',
+                };
+                showMessage('error', msgs[err.code] || err.message);
             } finally {
-                submitBtn.disabled = false;
-                spinner.classList.add('hidden');
-                spinner.classList.remove('animate-spin');
+                setLoading(false);
             }
         });
 
-        // Auto-redirect if already logged in
-        document.addEventListener('DOMContentLoaded', async () => {
-            const { data: { session } } = await supabase.auth.getSession();
-            if (session) {
+        // ── Google Sign-In ────────────────────────────────
+        googleBtn.addEventListener('click', async () => {
+            try {
+                googleBtn.disabled = true;
+                googleBtn.textContent = 'Signing in...';
+                const result = await signInWithPopup(auth, googleProvider);
+                await createUserProfile(result.user);
                 window.location.href = 'dashboard.html';
+            } catch (err) {
+                if (err.code !== 'auth/popup-closed-by-user') {
+                    showMessage('error', err.message);
+                }
+                googleBtn.disabled = false;
+                googleBtn.innerHTML = `<svg width="18" height="18" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                    <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
+                    <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
+                    <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
+                    <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
+                    <path fill="none" d="M0 0h48v48H0z"/>
+                </svg> Continue with Google`;
+            }
+        });
+
+        // ── Forgot Password ───────────────────────────────
+        forgotBtn.addEventListener('click', async () => {
+            const email = emailInput.value.trim();
+            if (!email) {
+                showMessage('error', 'Enter your email address above first.');
+                return;
+            }
+            try {
+                await sendPasswordResetEmail(auth, email);
+                showMessage('success', 'Password reset email sent! Check your inbox.');
+            } catch (err) {
+                showMessage('error', err.message);
             }
         });
     </script>
